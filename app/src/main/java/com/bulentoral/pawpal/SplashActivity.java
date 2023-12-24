@@ -2,12 +2,12 @@ package com.bulentoral.pawpal;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.ImageView;
 
 import com.bulentoral.pawpal.databinding.ActivitySplashBinding;
 import com.bulentoral.pawpal.util.GlideExtensions;
+import com.bulentoral.pawpal.util.NavigationUtils;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -20,6 +20,9 @@ public class SplashActivity extends AppCompatActivity {
         binding = ActivitySplashBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         initUI();
+
+        NavigationUtils.navigateToActivity(SplashActivity.this, AuthActivity.class);
+
     }
 
     private  void initUI(){
