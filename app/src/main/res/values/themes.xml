@@ -4,7 +4,7 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <!-- <item name="colorPrimary">@color/primary_color</item> -->
-        <item name="colorPrimary">@color/light_primary_color</item>
+        <item name="colorPrimary">@color/primary_color</item>
         <item name="colorPrimaryDark">@color/dark_primary_color</item>
           <item name="colorAccent">@color/accent_color</item>
           <item name="android:textColor">@color/primary_text</item>
@@ -47,8 +47,6 @@
           <item name="cornerRadius">15dp</item>
           <item name="strokeWidth">0dp</item>
           <item name="backgroundTint">@color/primary_color</item>
-
-
           <item name="android:layout_margin">16dp</item>
           <item name="android:textSize">18sp</item>
           <item name="android:fontFamily">@font/alata</item>
@@ -65,7 +63,24 @@
       </style>
 
 
+    <style name="MyBottomNavigationViewStyle" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="backgroundTint">@color/bottom_nav</item>
 
 
 
+    </style>
+
+    <style name="CustomFloatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="backgroundTint">@color/primary_color</item> <!-- FAB arka plan rengi -->
+        <item name="rippleColor">@color/light_primary_color</item> <!-- Ripple efekt rengi -->
+        <item name="fabSize">normal</item> <!-- FAB boyutu: 'mini', 'normal', 'auto' -->
+        <item name="borderWidth">0dp</item> <!-- Kenarlık genişliği -->
+    </style>
+
+    <style name="MyTab" parent="Widget.Material3.TabLayout">
+        <item name="backgroundTint">@color/text_and_icons</item>
+        <item name="tabSelectedTextColor">@color/dark_primary_color</item>
+        <item name="tabIndicatorColor">@color/dark_primary_color</item>
+        <item name="tabTextColor">@color/light_primary_color</item>
+    </style>
 </resources>

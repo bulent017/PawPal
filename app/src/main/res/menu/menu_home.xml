@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:title="Search"
+        android:icon="@drawable/search"
+        android:id="@+id/search"
+        app:showAsAction="ifRoom|collapseActionView"
+        app:actionViewClass="androidx.appcompat.widget.SearchView" />
+
+    <item
+        android:title="Message"
+        android:icon="@drawable/chat"
+        android:id="@+id/message"
+        app:showAsAction="ifRoom"
+        />
+
+    <item
+        android:title="Info"
+        android:icon="@drawable/info"
+        android:id="@+id/info"
+        app:showAsAction="ifRoom"
+       />
+
+
+</menu>
