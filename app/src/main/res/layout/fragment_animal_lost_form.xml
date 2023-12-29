@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AnimalLostFormFragment">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/arrow_back_24" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="1000dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialToolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="884dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/infoExtra"
+                    style="@style/AuthTextInputLayoutStyle"
+                    android:layout_width="363dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="8dp"
+                    app:endIconMode="clear_text"
+                    app:endIconTint="@color/primary_color"
+                    app:layout_constraintStart_toStartOf="@+id/animalCins"
+                    app:layout_constraintTop_toBottomOf="@+id/textView35">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/infoExtraText"
+                        style="@style/AuthTextInputEditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Enter message"
+                        android:maxLines="5"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/infoAward"
+                    style="@style/AuthTextInputLayoutStyle"
+                    android:layout_width="363dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="8dp"
+                    app:endIconMode="clear_text"
+                    app:endIconTint="@color/primary_color"
+                    app:layout_constraintBottom_toTopOf="@+id/loginButton"
+                    app:layout_constraintEnd_toEndOf="@+id/infoExtra"
+                    app:layout_constraintStart_toStartOf="@+id/textView34"
+                    app:layout_constraintTop_toBottomOf="@+id/textView34">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/infoAwardText"
+                        style="@style/AuthTextInputEditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Enter Amount"
+                        android:maxLines="5"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/animalAge"
+                    style="@style/AuthTextInputLayoutStyle"
+                    android:layout_width="363dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+
+                    app:endIconMode="clear_text"
+
+                    app:endIconTint="@color/primary_color"
+                    app:layout_constraintEnd_toEndOf="@+id/animalCins"
+                    app:layout_constraintStart_toStartOf="@+id/animalCins"
+                    app:layout_constraintTop_toBottomOf="@+id/animalCins">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/animalAgeText"
+                        style="@style/AuthTextInputEditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Age"
+                        android:maxLines="1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/loginButton"
+                    style="@style/Custom.FilledBackGroundAuth"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Save"
+                    android:textColor="@color/text_and_icons"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/infoAward"
+                    app:rippleColor="@color/light_primary_color">
+
+                </com.google.android.material.button.MaterialButton>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/animalTür"
+                    style="@style/AuthTextInputLayoutStyle"
+                    android:layout_width="363dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:endIconMode="clear_text"
+                    app:endIconTint="@color/primary_color"
+                    app:layout_constraintEnd_toEndOf="@+id/animalName"
+                    app:layout_constraintStart_toStartOf="@+id/animalName"
+                    app:layout_constraintTop_toBottomOf="@+id/animalName">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/animalTürText"
+                        style="@style/AuthTextInputEditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Type"
+                        android:maxLines="1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/animalName"
+                    style="@style/AuthTextInputLayoutStyle"
+                    android:layout_width="363dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="24dp"
+                    app:endIconMode="clear_text"
+                    app:endIconTint="@color/primary_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/textView8"
+                    app:layout_constraintTop_toBottomOf="@+id/textView8">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/animalNameText"
+                        style="@style/AuthTextInputEditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Name"
+                        android:maxLines="1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/animalCins"
+                    style="@style/AuthTextInputLayoutStyle"
+                    android:layout_width="363dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:endIconMode="clear_text"
+
+                    app:endIconTint="@color/primary_color"
+                    app:layout_constraintEnd_toEndOf="@+id/animalTür"
+                    app:layout_constraintStart_toStartOf="@+id/animalTür"
+                    app:layout_constraintTop_toBottomOf="@+id/animalTür">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/animalCinsText"
+                        style="@style/AuthTextInputEditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Genus"
+                        android:maxLines="1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="32dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@tools:sample/avatars" />
+
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:text="Animal Information"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+                <TextView
+                    android:id="@+id/textView34"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:text="Award"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/infoExtra" />
+
+                <TextView
+                    android:id="@+id/textView35"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="32dp"
+                    android:text="Additional Information"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/animalAge" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
