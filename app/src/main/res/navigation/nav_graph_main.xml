@@ -26,7 +26,11 @@
         android:id="@+id/profileFragment"
         android:name="com.bulentoral.pawpal.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/animalAdoptFormFragment"
         android:name="com.bulentoral.pawpal.AnimalAdoptFormFragment"
@@ -70,4 +74,9 @@
             android:id="@+id/action_infoLostAnimalFragment_to_lostAnimalFragment"
             app:destination="@id/lostAnimalFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.bulentoral.pawpal.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" />
 </navigation>

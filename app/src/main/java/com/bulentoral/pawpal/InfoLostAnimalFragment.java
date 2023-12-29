@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import com.bulentoral.pawpal.databinding.FragmentInfoLostAnimalBinding;
 import com.bulentoral.pawpal.databinding.FragmentLostAnimalBinding;
+import com.bulentoral.pawpal.util.NavigationUtils;
 
 public class InfoLostAnimalFragment extends Fragment {
     private FragmentInfoLostAnimalBinding binding;
@@ -18,7 +19,18 @@ public class InfoLostAnimalFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentInfoLostAnimalBinding.inflate(inflater, container, false);
+
+        initUI();
         return binding.getRoot();
+    }
+
+    private void initUI() {
+        binding.materialToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavigationUtils.navigateUp(InfoLostAnimalFragment.this);
+            }
+        });
     }
 
     @Override
