@@ -9,7 +9,7 @@
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/materialToolbar"
-        android:layout_width="409dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
@@ -20,8 +20,8 @@
         app:navigationIcon="@drawable/arrow_back_24" />
 
     <ScrollView
-        android:layout_width="0dp"
-        android:layout_height="1000dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,22 +29,23 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="884dp">
+                android:layout_height="match_parent">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/infoExtra"
                     style="@style/AuthTextInputLayoutStyle"
-                    android:layout_width="363dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-
+                    android:layout_marginEnd="24dp"
                     android:layout_marginTop="8dp"
                     app:endIconMode="clear_text"
                     app:endIconTint="@color/primary_color"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/animalCins"
                     app:layout_constraintTop_toBottomOf="@+id/textView35">
 
@@ -62,7 +63,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/infoAward"
                     style="@style/AuthTextInputLayoutStyle"
-                    android:layout_width="363dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
 
                     android:layout_marginTop="8dp"
@@ -87,12 +88,10 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/animalAge"
                     style="@style/AuthTextInputLayoutStyle"
-                    android:layout_width="363dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-
                     app:endIconMode="clear_text"
-
                     app:endIconTint="@color/primary_color"
                     app:layout_constraintEnd_toEndOf="@+id/animalCins"
                     app:layout_constraintStart_toStartOf="@+id/animalCins"
@@ -130,7 +129,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/animalTür"
                     style="@style/AuthTextInputLayoutStyle"
-                    android:layout_width="363dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     app:endIconMode="clear_text"
@@ -153,7 +152,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/animalName"
                     style="@style/AuthTextInputLayoutStyle"
-                    android:layout_width="363dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="24dp"
@@ -177,7 +176,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/animalCins"
                     style="@style/AuthTextInputLayoutStyle"
-                    android:layout_width="363dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     app:endIconMode="clear_text"

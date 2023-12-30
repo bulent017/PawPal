@@ -7,7 +7,7 @@
     tools:context=".SignUpFragment">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputLayoutUserName"
+        android:id="@+id/inputLayoutSurname"
         style="@style/AuthTextInputLayoutStyle"
         android:layout_width="363dp"
         android:layout_height="wrap_content"
@@ -29,11 +29,11 @@
             android:layout_width="match_parent"
             android:maxLines="1"
             android:layout_height="match_parent"
-            android:hint="Username" />
+            android:hint="Surname" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputLayoutUserPhone"
+        android:id="@+id/inputLayoutName"
         style="@style/AuthTextInputLayoutStyle"
         android:layout_width="363dp"
         android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
         app:layout_constraintEnd_toEndOf="@+id/inputLayoutUserMail"
         app:layout_constraintStart_toStartOf="@+id/inputLayoutUserMail"
         app:layout_constraintTop_toBottomOf="@+id/inputLayoutUserMail"
-        app:startIconDrawable="@drawable/phone"
+        app:startIconDrawable="@drawable/user"
         app:startIconTint="@color/primary_color">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -52,7 +52,7 @@
             style="@style/AuthTextInputEditTextStyle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Phone"
+            android:hint="Name"
             android:maxLines="1"
 
             android:inputType="textPassword"
@@ -94,8 +94,8 @@
         android:layout_marginEnd="24dp"
         app:endIconMode="clear_text"
         app:endIconTint="@color/primary_color"
-        app:layout_constraintEnd_toEndOf="@+id/inputLayoutUserName"
-        app:layout_constraintStart_toStartOf="@+id/inputLayoutUserName"
+        app:layout_constraintEnd_toEndOf="@+id/inputLayoutSurname"
+        app:layout_constraintStart_toStartOf="@+id/inputLayoutSurname"
         app:layout_constraintTop_toBottomOf="@+id/iconImage"
         app:startIconDrawable="@drawable/email_24"
         app:startIconTint="@color/primary_color">
@@ -128,9 +128,9 @@
         android:layout_marginTop="16dp"
         app:endIconMode="password_toggle"
         app:endIconTint="@color/primary_color"
-        app:layout_constraintEnd_toEndOf="@+id/inputLayoutUserPhone"
-        app:layout_constraintStart_toStartOf="@+id/inputLayoutUserPhone"
-        app:layout_constraintTop_toBottomOf="@+id/inputLayoutUserPhone"
+        app:layout_constraintEnd_toEndOf="@+id/inputLayoutName"
+        app:layout_constraintStart_toStartOf="@+id/inputLayoutName"
+        app:layout_constraintTop_toBottomOf="@+id/inputLayoutName"
         app:startIconDrawable="@drawable/lock_24"
         app:startIconTint="@color/primary_color">
 
@@ -173,9 +173,9 @@
         android:textSize="15sp"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/continueButton"
-        app:layout_constraintEnd_toEndOf="@+id/inputLayoutUserName"
-        app:layout_constraintStart_toStartOf="@+id/inputLayoutUserName"
-        app:layout_constraintTop_toBottomOf="@+id/inputLayoutUserName"
+        app:layout_constraintEnd_toEndOf="@+id/inputLayoutSurname"
+        app:layout_constraintStart_toStartOf="@+id/inputLayoutSurname"
+        app:layout_constraintTop_toBottomOf="@+id/inputLayoutSurname"
         app:layout_constraintVertical_bias="0.0"
         tools:text="User name can't be used"
         tools:visibility="visible" />
