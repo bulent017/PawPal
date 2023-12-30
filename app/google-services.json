@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "143179947271",
+    "project_id": "pawpal-6c38c",
+    "storage_bucket": "pawpal-6c38c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:143179947271:android:117e7551c4329ea8b779a2",
+        "android_client_info": {
+          "package_name": "com.bulentoral.pawpal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAK0jfwl1t05CFeijLQqjkU9iR5N9Y3U8s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

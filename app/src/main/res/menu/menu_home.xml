@@ -12,7 +12,7 @@
     <item
         android:title="Message"
         android:icon="@drawable/chat"
-        android:id="@+id/message"
+        android:id="@+id/iconMessage"
         app:showAsAction="ifRoom"
         />
 

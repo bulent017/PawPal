@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_homeFragment_to_animalAdoptFormFragment"
             app:destination="@id/animalAdoptFormFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_allMessagesFragment"
+            app:destination="@id/allMessagesFragment" />
     </fragment>
     <fragment
         android:id="@+id/mapsFragment"
@@ -79,4 +82,9 @@
         android:name="com.bulentoral.pawpal.EditProfileFragment"
         android:label="fragment_edit_profile"
         tools:layout="@layout/fragment_edit_profile" />
+    <fragment
+        android:id="@+id/allMessagesFragment"
+        android:name="com.bulentoral.pawpal.AllMessagesFragment"
+        android:label="fragment_all_messages"
+        tools:layout="@layout/fragment_all_messages" />
 </navigation>
