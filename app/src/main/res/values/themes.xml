@@ -3,60 +3,84 @@
     <style name="Base.Theme.PawPal" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- <item name="colorPrimary">@color/primary_color</item> -->
         <item name="colorPrimary">@color/primary_color</item>
         <item name="colorPrimaryDark">@color/dark_primary_color</item>
-        <item name="colorAccent">@color/accent_color</item>
-        <item name="android:textColor">@color/primary_text</item>
-        <item name="android:textColorSecondary">@color/secondary_text</item>
-        <item name="android:windowBackground">@color/text_and_icons</item>
+          <item name="colorAccent">@color/accent_color</item>
+          <item name="android:textColor">@color/primary_text</item>
+          <item name="android:textColorSecondary">@color/secondary_text</item>
+          <item name="android:windowBackground">@color/text_and_icons</item>
+          <item name="android:fontFamily">@font/alata</item>
+      </style>
+
+      <style name="Theme.PawPal" parent="Base.Theme.PawPal" />
+
+
+
+
+      <style name="AuthTextInputLayoutStyle" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+          <item name="boxCornerRadiusBottomEnd">15dp</item>
+          <item name="boxCornerRadiusBottomStart">15dp</item>
+          <item name="boxCornerRadiusTopStart">15dp</item>
+          <item name="boxCornerRadiusTopEnd">15dp</item>
+          <item name="boxStrokeErrorColor">@color/error_color</item>
+          <item name="hintEnabled">true</item>
+          <item name="boxStrokeColor">@color/dark_primary_color</item>
+          <item name="hintTextColor">@color/dark_primary_color</item>
+
+      </style>
+
+
+      <style name="AuthTextInputEditTextStyle" parent="ThemeOverlay.Material3.TextInputEditText">
+          <item name="android:textSize">18sp</item>
+          <item name="android:gravity">start</item>
+          <item name="android:padding">12dp</item>
+          <item name="android:fontFamily">@font/alata</item>
+      </style>
+
+
+
+      <style name="Custom.FilledBackGroundAuth" parent="Widget.Material3.Button.OutlinedButton">
+          <item name="android:padding">12dp</item>
+          <item name="android:shape">rectangle</item>
+          <item name="android:gravity">center</item>
+          <item name="cornerRadius">15dp</item>
+          <item name="strokeWidth">0dp</item>
+          <item name="backgroundTint">@color/primary_color</item>
+          <item name="android:layout_margin">16dp</item>
+          <item name="android:textSize">18sp</item>
+          <item name="android:fontFamily">@font/alata</item>
+      </style>
+
+      <style name="Custom.StrokeButtonAuth" parent="Widget.Material3.Button.OutlinedButton">
+          <item name="android:padding">12dp</item>
+          <item name="android:shape">rectangle</item>
+          <item name="cornerRadius">15dp</item>
+          <item name="strokeWidth">2dp</item>
+          <item name="android:layout_margin">16dp</item>
+          <item name="android:textSize">18sp</item>
+          <item name="android:fontFamily">@font/alata</item>
+      </style>
+
+
+    <style name="MyBottomNavigationViewStyle" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="backgroundTint">@color/bottom_nav</item>
+
+
+
     </style>
 
-    <style name="Theme.PawPal" parent="Base.Theme.PawPal" />
-
-
-
-
-    <style name="AuthTextInputLayoutStyle" parent="Widget.Material3.TextInputLayout.OutlinedBox">
-        <item name="boxCornerRadiusBottomEnd">15dp</item>
-        <item name="boxCornerRadiusBottomStart">15dp</item>
-        <item name="boxCornerRadiusTopStart">15dp</item>
-        <item name="boxCornerRadiusTopEnd">15dp</item>
-        <item name="hintEnabled">false</item>
-
+    <style name="CustomFloatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="backgroundTint">@color/primary_color</item> <!-- FAB arka plan rengi -->
+        <item name="rippleColor">@color/light_primary_color</item> <!-- Ripple efekt rengi -->
+        <item name="fabSize">normal</item> <!-- FAB boyutu: 'mini', 'normal', 'auto' -->
+        <item name="borderWidth">0dp</item> <!-- Kenarlık genişliği -->
     </style>
 
-
-    <style name="AuthTextInputEditTextStyle" parent="ThemeOverlay.Material3.TextInputEditText">
-        <item name="android:textSize">18sp</item>
-        <item name="android:gravity">center</item>
-        <item name="android:padding">12dp</item>
-        <item name="android:fontFamily">@font/alata</item>
+    <style name="MyTab" parent="Widget.Material3.TabLayout">
+        <item name="backgroundTint">@color/text_and_icons</item>
+        <item name="tabSelectedTextColor">@color/dark_primary_color</item>
+        <item name="tabIndicatorColor">@color/dark_primary_color</item>
+        <item name="tabTextColor">@color/light_primary_color</item>
     </style>
-
-
-
-    <style name="Custom.FilledBackGroundAuth" parent="Widget.Material3.Button.OutlinedButton">
-        <item name="android:padding">12dp</item>
-        <item name="android:shape">rectangle</item>
-        <item name="android:gravity">center</item>
-        <item name="cornerRadius">15dp</item>
-        <item name="strokeWidth">0dp</item>
-        <item name="android:layout_margin">16dp</item>
-        <item name="android:textSize">18sp</item>
-        <item name="android:fontFamily">@font/alata</item>
-    </style>
-
-    <style name="Custom.StrokeButtonAuth" parent="Widget.Material3.Button.OutlinedButton">
-        <item name="android:padding">12dp</item>
-        <item name="android:shape">rectangle</item>
-        <item name="cornerRadius">15dp</item>
-        <item name="strokeWidth">2dp</item>
-        <item name="android:layout_margin">16dp</item>
-        <item name="android:textSize">18sp</item>
-        <item name="android:fontFamily">@font/alata</item>
-    </style>
-
-
-
-
 </resources>
