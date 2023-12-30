@@ -1,4 +1,4 @@
-package com.bulentoral.pawpal;
+package com.bulentoral.pawpal.ui.auth;
 
 import android.os.Bundle;
 
@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.bulentoral.pawpal.R;
 import com.bulentoral.pawpal.databinding.FragmentLoginBinding;
 import com.bulentoral.pawpal.util.GlideExtensions;
 import com.bulentoral.pawpal.util.NavigationUtils;
@@ -35,15 +36,7 @@ public class LoginFragment extends Fragment {
     }
     private  void initUI(){
         imageView = binding.iconImage;
-        loginButton = binding.loginButton;
         GlideExtensions.loadCircularImageFromDrawable(requireActivity(), R.drawable.puppy, imageView);
-
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                NavigationUtils.navigateToFragment(LoginFragment.this, R.id.action_loginFragment_to_signUpFragment);
-            }
-        });
 
         binding.toCreateAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
