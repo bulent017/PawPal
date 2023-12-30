@@ -51,6 +51,10 @@ public class FirebaseSource {
         });
     }
 
+    public boolean isUserLoggedIn() {
+        return getCurrentUser() != null;
+    }
+
     public void logout() {
         firebaseAuth.signOut();
     }

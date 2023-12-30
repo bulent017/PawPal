@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 
 import com.bulentoral.pawpal.databinding.ActivitySplashBinding;
+import com.bulentoral.pawpal.util.FirebaseSource;
 import com.bulentoral.pawpal.util.GlideExtensions;
 import com.bulentoral.pawpal.util.NavigationUtils;
 
@@ -20,8 +21,12 @@ public class SplashActivity extends AppCompatActivity {
         binding = ActivitySplashBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         initUI();
-
-        NavigationUtils.navigateToActivity(SplashActivity.this, AuthActivity.class);
+        if(FirebaseSource.getInstance().isUserLoggedIn()) {
+            NavigationUtils.navigateToActivity(this, MainActivity.class);
+        }
+        else {
+            NavigationUtils.navigateToActivity(SplashActivity.this, AuthActivity.class);
+        }
 
     }
 

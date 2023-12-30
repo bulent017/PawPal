@@ -36,10 +36,6 @@ public class LoginFragment extends Fragment {
         binding = FragmentLoginBinding.inflate(inflater, container, false);
         authViewModel = new ViewModelProvider(this).get(AuthViewModel.class);
 
-        if(authViewModel.isUserLoggedIn()) {
-            NavigationUtils.navigateToActivity(requireActivity(), MainActivity.class);
-        }
-
 
         initUI();
         return binding.getRoot();
