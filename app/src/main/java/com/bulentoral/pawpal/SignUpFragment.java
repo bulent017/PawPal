@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import com.bulentoral.pawpal.databinding.FragmentLoginBinding;
 import com.bulentoral.pawpal.databinding.FragmentSignUpBinding;
 import com.bulentoral.pawpal.util.GlideExtensions;
+import com.bulentoral.pawpal.util.NavigationUtils;
 
 
 public class SignUpFragment extends Fragment {
@@ -34,6 +35,13 @@ public class SignUpFragment extends Fragment {
         imageView = binding.iconImage;
 
         GlideExtensions.loadCircularImageFromDrawable(requireActivity(), R.drawable.cat, imageView);
+
+        binding.haveAnAccountButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavigationUtils.navigateToFragment(SignUpFragment.this,R.id.action_signUpFragment_to_loginFragment);
+            }
+        });
 
     }
 

@@ -149,7 +149,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/toCreateAccountButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"

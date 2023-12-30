@@ -44,6 +44,13 @@ public class LoginFragment extends Fragment {
                 NavigationUtils.navigateToFragment(LoginFragment.this, R.id.action_loginFragment_to_signUpFragment);
             }
         });
+
+        binding.toCreateAccountButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavigationUtils.navigateToFragment(LoginFragment.this,R.id.action_loginFragment_to_signUpFragment);
+            }
+        });
     }
 
 }
