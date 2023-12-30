@@ -1,4 +1,4 @@
-package com.bulentoral.pawpal;
+package com.bulentoral.pawpal.ui.adopt;
 
 import static com.bulentoral.pawpal.util.NavigationUtils.navigateToFragment;
 
@@ -11,8 +11,8 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
+import com.bulentoral.pawpal.R;
 import com.bulentoral.pawpal.databinding.FragmentHomeBinding;
 import com.bulentoral.pawpal.util.NavigationUtils;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
