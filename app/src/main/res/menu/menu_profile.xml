@@ -3,8 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/iconSettings"
-        android:icon="@drawable/ic_settings"
-        android:title="Settings"
-        app:showAsAction="ifRoom" />
+        android:id="@+id/editProfile"
+        android:title="Edit Profile" />
+    <item
+        android:id="@+id/logOut"
+        android:title="Log Out" />
+    <!-- İstediğiniz kadar alt menü öğesi ekleyebilirsiniz -->
+
 </menu>
