@@ -1,9 +1,8 @@
-package com.bulentoral.pawpal;
+package com.bulentoral.pawpal.ui.adopt;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;

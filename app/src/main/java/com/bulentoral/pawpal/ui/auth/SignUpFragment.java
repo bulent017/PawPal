@@ -1,4 +1,4 @@
-package com.bulentoral.pawpal;
+package com.bulentoral.pawpal.ui.auth;
 
 import android.os.Bundle;
 
@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.bulentoral.pawpal.R;
 import com.bulentoral.pawpal.databinding.FragmentLoginBinding;
 import com.bulentoral.pawpal.databinding.FragmentSignUpBinding;
 import com.bulentoral.pawpal.util.GlideExtensions;
