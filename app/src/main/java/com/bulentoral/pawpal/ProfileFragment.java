@@ -4,26 +4,19 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.PopupMenu;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.bulentoral.pawpal.databinding.FragmentInfoAdoptBinding;
 import com.bulentoral.pawpal.databinding.FragmentProfileBinding;
-import com.bulentoral.pawpal.util.FirebaseSource;
+import com.bulentoral.pawpal.util.FirebaseUtil;
 import com.bulentoral.pawpal.util.NavigationUtils;
 import com.google.android.material.tabs.TabLayout;
-import com.google.android.material.tabs.TabLayoutMediator;
-
-import java.util.Objects;
 
 
 public class ProfileFragment extends Fragment {
@@ -84,7 +77,7 @@ public class ProfileFragment extends Fragment {
                     return true;
                 } else if (id == R.id.logOut) {
                     // Log Out seçeneği seçildiğinde yapılacak işlemler
-                    FirebaseSource.getInstance().logout();
+                    FirebaseUtil.getInstance().logout();
                     Toast.makeText(requireContext(),"Logged Out!!",Toast.LENGTH_LONG).show();
                     NavigationUtils.navigateToActivity(requireActivity(),AuthActivity.class);
                     return true;

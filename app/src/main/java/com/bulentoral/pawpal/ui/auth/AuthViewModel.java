@@ -2,7 +2,7 @@ package com.bulentoral.pawpal.ui.auth;
 
 import androidx.lifecycle.ViewModel;
 
-import com.bulentoral.pawpal.util.FirebaseSource;
+import com.bulentoral.pawpal.util.FirebaseUtil;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -10,17 +10,17 @@ import io.reactivex.schedulers.Schedulers;
 
 public class AuthViewModel extends ViewModel{
 
-    private final FirebaseSource firebaseSource;
+    private final FirebaseUtil firebaseUtil;
     private final CompositeDisposable disposables;
 
     public AuthViewModel() {
-        this.firebaseSource = FirebaseSource.getInstance();
+        this.firebaseUtil = FirebaseUtil.getInstance();
         this.disposables = new CompositeDisposable();
     }
 
     // Kullanıcı girişi için işlem
     public void loginUser(String email, String password, OnAuthListener listener) {
-        disposables.add(firebaseSource.login(email, password)
+        disposables.add(firebaseUtil.login(email, password)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(listener::onSuccess, listener::onError));
@@ -28,7 +28,7 @@ public class AuthViewModel extends ViewModel{
 
     // Kullanıcı kaydı için işlem
     public void registerUser(String email, String password, OnAuthListener listener) {
-        disposables.add(firebaseSource.register(email, password)
+        disposables.add(firebaseUtil.register(email, password)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(listener::onSuccess, listener::onError));
@@ -36,12 +36,12 @@ public class AuthViewModel extends ViewModel{
 
     // Kullanıcı çıkışı için işlem
     public void logoutUser() {
-        firebaseSource.logout();
+        firebaseUtil.logout();
     }
 
     // Kullanıcı oturumu açık mı kontrolü
     public boolean isUserLoggedIn() {
-        return firebaseSource.getCurrentUser() != null;
+        return firebaseUtil.getCurrentUser() != null;
     }
 
     @Override
