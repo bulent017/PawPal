@@ -69,4 +69,15 @@ dependencies {
     //RxJava
     implementation ("io.reactivex.rxjava2:rxjava:2.2.5")
     implementation ("io.reactivex.rxjava2:rxandroid:2.1.0")
+
+    //Firestore and http
+    implementation ("com.firebaseui:firebase-ui-firestore:8.0.2")
+    implementation ("com.squareup.okhttp3:okhttp:4.11.0")
+    implementation ("com.google.firebase:firebase-firestore-ktx:24.10.0")
+    implementation ("com.google.firebase:firebase-storage-ktx:20.3.0")
+    implementation ("com.google.firebase:firebase-messaging-ktx:23.4.0")
+
+    //some image lib, not ready to use
+    //implementation ("com.github.dhaval2404:imagepicker:2.1")
+
 }

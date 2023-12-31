@@ -12,14 +12,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
-        app:endIconDrawable="@drawable/search_check"
         app:endIconMode="custom"
         app:endIconTint="@color/primary_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputLayoutUserPassword"
+        app:layout_constraintTop_toBottomOf="@+id/inputLayoutName"
         app:startIconDrawable="@drawable/user"
         app:startIconTint="@color/primary_color">
 
@@ -33,16 +32,44 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputLayoutUserName"
+        style="@style/AuthTextInputLayoutStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        app:endIconDrawable="@drawable/search_check"
+        app:endIconMode="custom"
+        app:endIconTint="@color/primary_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputLayoutSurname"
+        app:startIconDrawable="@drawable/ic_user"
+        app:startIconTint="@color/primary_color">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/userNameEditText"
+            style="@style/AuthTextInputEditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Surname"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputLayoutName"
         style="@style/AuthTextInputLayoutStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         app:endIconMode="clear_text"
         app:endIconTint="@color/primary_color"
-        app:layout_constraintEnd_toEndOf="@+id/inputLayoutUserMail"
-        app:layout_constraintStart_toStartOf="@+id/inputLayoutUserMail"
-        app:layout_constraintTop_toBottomOf="@+id/inputLayoutUserMail"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iconImage"
         app:startIconDrawable="@drawable/user"
         app:startIconTint="@color/primary_color">
 
@@ -62,7 +89,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:text="Sign Up"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -70,31 +97,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Sign into your account"
-        android:textColor="@color/secondary_text"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputLayoutUserMail"
         style="@style/AuthTextInputLayoutStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         app:endIconMode="clear_text"
         app:endIconTint="@color/primary_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iconImage"
+        app:layout_constraintTop_toBottomOf="@+id/inputLayoutUserName"
         app:startIconDrawable="@drawable/email_24"
         app:startIconTint="@color/primary_color">
 
@@ -111,24 +126,25 @@
         android:id="@+id/iconImage"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="32dp"
         android:scaleType="fitCenter"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputLayoutUserPassword"
         style="@style/AuthTextInputLayoutStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         app:endIconMode="password_toggle"
         app:endIconTint="@color/primary_color"
-        app:layout_constraintEnd_toEndOf="@+id/inputLayoutName"
-        app:layout_constraintStart_toStartOf="@+id/inputLayoutName"
-        app:layout_constraintTop_toBottomOf="@+id/inputLayoutName"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inputLayoutUserMail"
         app:startIconDrawable="@drawable/lock_24"
         app:startIconTint="@color/primary_color">
 
@@ -139,7 +155,6 @@
             android:layout_height="match_parent"
             android:hint="Password"
             android:inputType="textPassword"
-
             android:maxLines="1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -170,9 +185,9 @@
         android:layout_marginTop="8dp"
         android:textSize="15sp"
         android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="@+id/inputLayoutSurname"
-        app:layout_constraintStart_toStartOf="@+id/inputLayoutSurname"
-        app:layout_constraintTop_toBottomOf="@+id/inputLayoutSurname"
+        app:layout_constraintEnd_toEndOf="@+id/inputLayoutUserPassword"
+        app:layout_constraintStart_toStartOf="@+id/inputLayoutUserPassword"
+        app:layout_constraintTop_toBottomOf="@+id/inputLayoutUserPassword"
         android:text="You have an account already? Click here." />
 
 
