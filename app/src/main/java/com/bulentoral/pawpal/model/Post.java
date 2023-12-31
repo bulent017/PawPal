@@ -15,6 +15,8 @@ public class Post {
     private String healthStatus;
     private String photos;
     private Date datePosted;
+    private PostType postType;
+
 
     // Adoption attributes
     private boolean adoptionStatus;
@@ -25,7 +27,7 @@ public class Post {
     private String address;
     private double award = 0.0; // Opsiyonel
 
-    public Post(String postID,String userID,String name , String type, String genus, int age, String gender, String description, String healthStatus, String photos, boolean adoptionStatus, Date dateAvailable, Date datePosted) {
+    public Post(String postID,String userID,PostType postType,String name , String type, String genus, int age, String gender, String description, String healthStatus, String photos, boolean adoptionStatus, Date dateAvailable, Date datePosted) {
         this.userID = userID;
         this.postID =postID;
         this.name = name;
@@ -40,6 +42,7 @@ public class Post {
         // Adoption-specific attributes
         this.adoptionStatus = adoptionStatus;
         this.dateAvailable = dateAvailable;
+        this.postType = postType;
 
         // Initialize lost animal attributes as null or default
         this.dateLost = null;
@@ -47,7 +50,7 @@ public class Post {
         this.award = 0.0;
     }
 
-    public Post(String postID,String userID, String name, String type, String genus, int age, String gender, String description, String healthStatus, String photos, Date dateLost, String address, double award,Date datePosted) {
+    public Post(String postID,String userID,PostType postType, String name, String type, String genus, int age, String gender, String description, String healthStatus, String photos, Date dateLost, String address, double award,Date datePosted) {
         this.userID = userID;
         this.postID =postID;
         this.name = name;
@@ -59,6 +62,7 @@ public class Post {
         this.healthStatus = healthStatus;
         this.photos = photos;
         this.datePosted = datePosted;
+        this.postType = postType;
         // Initialize adoption attributes as null or default
         this.adoptionStatus = false;
         this.dateAvailable = null;
@@ -199,4 +203,8 @@ public class Post {
     public void setAward(double award) {
         this.award = award;
     }
+}
+ enum PostType {
+    ADOPTION, // Sahiplendirme ilanı
+    LOST      // Kayıp hayvan ilanı
 }
