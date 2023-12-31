@@ -192,6 +192,14 @@ public class Post {
         return address;
     }
 
+    public PostType getPostType() {
+        return postType;
+    }
+
+    public void setPostType(PostType postType) {
+        this.postType = postType;
+    }
+
     public void setAddress(String address) {
         this.address = address;
     }
