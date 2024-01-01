@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_homeFragment_to_allMessagesFragment"
             app:destination="@id/allMessagesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/mapsFragment"
@@ -84,7 +87,32 @@
         tools:layout="@layout/fragment_edit_profile" />
     <fragment
         android:id="@+id/allMessagesFragment"
-        android:name="com.bulentoral.pawpal.AllMessagesFragment"
+        android:name="com.bulentoral.pawpal.ui.chat.AllMessagesFragment"
         android:label="fragment_all_messages"
-        tools:layout="@layout/fragment_all_messages" />
+        tools:layout="@layout/fragment_all_messages" >
+        <action
+            android:id="@+id/action_allMessagesFragment_to_messageFragment"
+            app:destination="@id/messageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.bulentoral.pawpal.ui.chat.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_messageFragment"
+            app:destination="@id/messageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/messageFragment"
+        android:name="com.bulentoral.pawpal.ui.chat.MessageFragment"
+        android:label="fragment_message"
+        tools:layout="@layout/fragment_message" >
+        <action
+            android:id="@+id/action_messageFragment_to_allMessagesFragment"
+            app:destination="@id/allMessagesFragment" />
+        <action
+            android:id="@+id/action_messageFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
 </navigation>

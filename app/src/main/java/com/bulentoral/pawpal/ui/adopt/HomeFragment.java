@@ -53,6 +53,8 @@ public class HomeFragment extends Fragment {
 
                     NavigationUtils.navigateToFragment(HomeFragment.this,R.id.action_homeFragment_to_allMessagesFragment);
                     return true;
+                } else if (item.getItemId() == R.id.searchUsers) {
+                    NavigationUtils.navigateToFragment(HomeFragment.this,R.id.action_homeFragment_to_searchFragment);
                 }
                 return false;
             }
