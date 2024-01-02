@@ -6,19 +6,17 @@ public class User {
     private String name;
     private String surname;
     private String email;
-    private String address;
 
     //private String userType;
     private User(){
 
     }
 
-    public User(String userID, String name, String surname, String email,  String address) {
+    public User(String userID, String name, String surname, String email) {
         UserID = userID;
         this.name = name;
         this.surname = surname;
         this.email = email;
-        this.address = address;
     }
 
     public String getName() {
@@ -37,13 +35,7 @@ public class User {
         UserID = userID;
     }
 
-    public String getAddress() {
-        return address;
-    }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
 
     public String getSurname() {
         return surname;
@@ -72,7 +64,6 @@ public class User {
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", email='" + email + '\'' +
-                ", address='" + address + '\'' +
                 '}';
     }
 }

@@ -78,7 +78,7 @@
             style="@style/AuthTextInputEditTextStyle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Name"
+            android:hint="User name"
             android:inputType="textPassword"
             android:maxLines="1"
             app:layout_constraintEnd_toEndOf="parent"

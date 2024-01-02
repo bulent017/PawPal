@@ -7,8 +7,20 @@
     android:layout_height="match_parent"
     tools:context=".ui.adopt.AnimalAdoptFormFragment">
 
-    <ScrollView
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar"
         android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/arrow_back_24" />
+
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,7 +34,31 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="753dp">
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/infoExtra"
+                    style="@style/AuthTextInputLayoutStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="24dp"
+                    app:endIconMode="clear_text"
+                    app:endIconTint="@color/primary_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/animalCins"
+                    app:layout_constraintTop_toBottomOf="@+id/textView35">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/infoExtraText"
+                        style="@style/AuthTextInputEditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Enter description"
+                        android:maxLines="5"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/animalAge"
@@ -30,9 +66,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-
                     app:endIconMode="clear_text"
-
                     app:endIconTint="@color/primary_color"
                     app:layout_constraintEnd_toEndOf="@+id/animalCins"
                     app:layout_constraintStart_toStartOf="@+id/animalCins"
@@ -44,6 +78,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:hint="Age"
+                        android:inputType="number"
                         android:maxLines="1"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent" />
@@ -51,15 +86,16 @@
 
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/saveAdoptAnimal"
+                    android:id="@+id/saveButton"
                     style="@style/Custom.FilledBackGroundAuth"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
                     android:text="Save"
                     android:textColor="@color/text_and_icons"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:rippleColor="@color/light_primary_color">
 
                 </com.google.android.material.button.MaterialButton>
@@ -68,7 +104,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/animalTür"
                     style="@style/AuthTextInputLayoutStyle"
-                    android:layout_width="363dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     app:endIconMode="clear_text"
@@ -78,7 +114,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/animalName">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/animalTürText"
+                        android:id="@+id/animalTypeText"
                         style="@style/AuthTextInputEditTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -91,7 +127,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/animalName"
                     style="@style/AuthTextInputLayoutStyle"
-                    android:layout_width="363dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="24dp"
@@ -115,7 +151,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/animalCins"
                     style="@style/AuthTextInputLayoutStyle"
-                    android:layout_width="363dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     app:endIconMode="clear_text"
@@ -136,17 +172,18 @@
                         app:layout_constraintStart_toStartOf="parent" />
                 </com.google.android.material.textfield.TextInputLayout>
 
+
                 <ImageView
-                    android:id="@+id/imageView2"
+                    android:id="@+id/animalPicture"
                     android:layout_width="200dp"
+                    android:scaleType="fitCenter"
                     android:layout_height="200dp"
                     android:layout_marginTop="32dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_bias="0.497"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:src="@tools:sample/avatars" />
-
 
                 <TextView
                     android:id="@+id/textView8"
@@ -157,24 +194,86 @@
                     android:text="Animal Information"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+                    app:layout_constraintTop_toBottomOf="@+id/animalPicture" />
+
+                <TextView
+                    android:id="@+id/textView35"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:text="Additional Information"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+                    <RadioButton
+                        android:id="@+id/maleRadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="Male" />
+
+                    <RadioButton
+                        android:id="@+id/femaleRadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
+                        android:text="Female" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="16dp"
+                    android:text="Gender"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@+id/animalAge"
+                    app:layout_constraintTop_toBottomOf="@+id/animalAge" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/addPicture"
+                    style="@style/CustomFloatingActionButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/accent_color"
+                    android:clickable="true"
+                    android:src="@drawable/add"
+                    app:layout_constraintBottom_toBottomOf="@+id/animalPicture"
+                    app:layout_constraintEnd_toEndOf="@+id/animalPicture" />
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/adressAutoCompleteTextview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="16dp"
+                    android:hint="Choose Adress"
+                    android:maxLines="1"
+                    app:layout_constraintBottom_toTopOf="@+id/saveButton"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/infoExtra" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         </LinearLayout>
     </ScrollView>
-
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/materialToolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/arrow_back_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

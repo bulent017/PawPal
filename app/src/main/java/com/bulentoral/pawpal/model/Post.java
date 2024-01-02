@@ -1,10 +1,11 @@
 package com.bulentoral.pawpal.model;
 
+import com.google.firebase.Timestamp;
+
 import java.util.Date;
 
 public class Post {
     private String postID;
-
     private String userID;
     private String name;
     private String type;
@@ -12,45 +13,43 @@ public class Post {
     private int age;
     private String gender;
     private String description;
-    private String healthStatus;
-    private String photos;
-    private Date datePosted;
+    //private String healthStatus;
+    private String imageUri;
+    private Timestamp datePosted;
     private PostType postType;
 
-
+    //String postID, String userID, PostType postType, String name, String type, String genus, int age, String gender, String description, String photos, Date datePosted, String address
     // Adoption attributes
     private boolean adoptionStatus;
-    private Date dateAvailable;
+   // private Date dateAvailable;
 
     // Lost aniaml attributes
     private Date dateLost;
     private String address;
     private double award = 0.0; // Opsiyonel
 
-    public Post(String postID,String userID,PostType postType,String name , String type, String genus, int age, String gender, String description, String healthStatus, String photos, boolean adoptionStatus, Date dateAvailable, Date datePosted) {
-        this.userID = userID;
-        this.postID =postID;
+    public Post(PostType postType,String name , String type, String genus, int age, String gender, String description,  String photos,  String address) {
+
         this.name = name;
         this.type = type;
         this.genus = genus;
         this.age = age;
         this.gender = gender;
         this.description = description;
-        this.healthStatus = healthStatus;
-        this.photos = photos;
-        this.datePosted = datePosted;
+        this.imageUri = photos;
+        this.datePosted = Timestamp.now();
         // Adoption-specific attributes
-        this.adoptionStatus = adoptionStatus;
-        this.dateAvailable = dateAvailable;
+        this.adoptionStatus = false;
         this.postType = postType;
+        this.address = address;
 
         // Initialize lost animal attributes as null or default
         this.dateLost = null;
-        this.address = null;
+
         this.award = 0.0;
     }
 
-    public Post(String postID,String userID,PostType postType, String name, String type, String genus, int age, String gender, String description, String healthStatus, String photos, Date dateLost, String address, double award,Date datePosted) {
+    public Post(String postID,String userID,PostType postType, String name, String type, String genus, int age, String gender, String description,  String photos, Date dateLost, String address, double award,Timestamp datePosted) {
         this.userID = userID;
         this.postID =postID;
         this.name = name;
@@ -59,33 +58,15 @@ public class Post {
         this.age = age;
         this.gender = gender;
         this.description = description;
-        this.healthStatus = healthStatus;
-        this.photos = photos;
+        this.imageUri = photos;
         this.datePosted = datePosted;
         this.postType = postType;
         // Initialize adoption attributes as null or default
         this.adoptionStatus = false;
-        this.dateAvailable = null;
-
         // Lost animal-specific attributes
         this.dateLost = dateLost;
         this.address = address;
         this.award = award;
-    }
-
-
-
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getType() {
-        return type;
     }
 
     public String getPostID() {
@@ -104,12 +85,16 @@ public class Post {
         this.userID = userID;
     }
 
-    public Date getDatePosted() {
-        return datePosted;
+    public String getName() {
+        return name;
     }
 
-    public void setDatePosted(Date datePosted) {
-        this.datePosted = datePosted;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getType() {
+        return type;
     }
 
     public void setType(String type) {
@@ -148,20 +133,28 @@ public class Post {
         this.description = description;
     }
 
-    public String getHealthStatus() {
-        return healthStatus;
+    public String getImageUri() {
+        return imageUri;
     }
 
-    public void setHealthStatus(String healthStatus) {
-        this.healthStatus = healthStatus;
+    public void setImageUri(String imageUri) {
+        this.imageUri = imageUri;
     }
 
-    public String getPhotos() {
-        return photos;
+    public Timestamp getDatePosted() {
+        return datePosted;
     }
 
-    public void setPhotos(String photos) {
-        this.photos = photos;
+    public void setDatePosted(Timestamp datePosted) {
+        this.datePosted = datePosted;
+    }
+
+    public PostType getPostType() {
+        return postType;
+    }
+
+    public void setPostType(PostType postType) {
+        this.postType = postType;
     }
 
     public boolean isAdoptionStatus() {
@@ -170,14 +163,6 @@ public class Post {
 
     public void setAdoptionStatus(boolean adoptionStatus) {
         this.adoptionStatus = adoptionStatus;
-    }
-
-    public Date getDateAvailable() {
-        return dateAvailable;
-    }
-
-    public void setDateAvailable(Date dateAvailable) {
-        this.dateAvailable = dateAvailable;
     }
 
     public Date getDateLost() {
@@ -192,14 +177,6 @@ public class Post {
         return address;
     }
 
-    public PostType getPostType() {
-        return postType;
-    }
-
-    public void setPostType(PostType postType) {
-        this.postType = postType;
-    }
-
     public void setAddress(String address) {
         this.address = address;
     }
@@ -212,7 +189,6 @@ public class Post {
         this.award = award;
     }
 }
- enum PostType {
-    ADOPTION, // Sahiplendirme ilanı
-    LOST      // Kayıp hayvan ilanı
-}
+
+
+

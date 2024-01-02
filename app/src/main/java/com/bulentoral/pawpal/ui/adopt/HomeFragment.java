@@ -14,18 +14,29 @@ import android.view.ViewGroup;
 
 import com.bulentoral.pawpal.R;
 import com.bulentoral.pawpal.databinding.FragmentHomeBinding;
+import com.bulentoral.pawpal.model.Post;
+import com.bulentoral.pawpal.model.PostType;
+import com.bulentoral.pawpal.util.FirebaseUtil;
 import com.bulentoral.pawpal.util.NavigationUtils;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.Calendar;
+import java.util.Date;
 
 
 public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
     private FloatingActionButton addButton;
+    private AdoptAnimalViewModel viewModel;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
+        viewModel = new AdoptAnimalViewModel();
+
         initUI();
+
         return binding.getRoot();
     }
 
@@ -41,6 +52,10 @@ public class HomeFragment extends Fragment {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+
+
                 NavigationUtils.navigateToFragment(HomeFragment.this, R.id.action_homeFragment_to_animalAdoptFormFragment);
             }
         });
