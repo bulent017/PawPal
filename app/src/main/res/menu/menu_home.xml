@@ -3,25 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:title="Search"
+        android:id="@+id/searchUsers"
         android:icon="@drawable/search"
-        android:id="@+id/search"
-        app:showAsAction="ifRoom|collapseActionView"
-        app:actionViewClass="androidx.appcompat.widget.SearchView" />
+        android:title="Search"
+        app:showAsAction="ifRoom" />
 
     <item
-        android:title="Message"
-        android:icon="@drawable/chat"
         android:id="@+id/iconMessage"
-        app:showAsAction="ifRoom"
-        />
+        android:icon="@drawable/chat"
+        android:title="Message"
+        app:showAsAction="ifRoom" />
 
     <item
-        android:title="Info"
+        android:id="@+id/infoIcon"
         android:icon="@drawable/info"
-        android:id="@+id/info"
-        app:showAsAction="ifRoom"
-       />
+        android:title="Info"
+        app:showAsAction="ifRoom" />
 
 
 </menu>

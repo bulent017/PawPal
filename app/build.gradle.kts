@@ -45,6 +45,7 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment:2.7.6")
     implementation("androidx.navigation:navigation-ui:2.7.6")
     implementation("com.google.android.gms:play-services-maps:18.2.0")
+    implementation("com.google.firebase:firebase-messaging:23.4.0")
     implementation("com.google.firebase:firebase-storage:20.3.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
@@ -78,7 +79,20 @@ dependencies {
     implementation ("com.google.firebase:firebase-firestore-ktx:24.10.0")
     implementation ("com.google.firebase:firebase-storage-ktx:20.3.0")
     implementation ("com.google.firebase:firebase-messaging-ktx:23.4.0")
+    implementation("com.google.firebase:firebase-messaging:23.4.0.")
 
+    //retrofit ve json
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.16.1")
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-jackson:2.9.0")
+    implementation ("com.squareup.retrofit2:adapter-rxjava2:2.9.0")
+
+
+    //rxjava3
+    implementation ("io.reactivex.rxjava3:rxjava:3.1.5") // En son sürümü belirtin
+    implementation ("io.reactivex.rxjava3:rxandroid:3.0.2") // En son sürümü belirtin
+
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     //some image lib, not ready to use
     //implementation ("com.github.dhaval2404:imagepicker:2.1")
     //image picker

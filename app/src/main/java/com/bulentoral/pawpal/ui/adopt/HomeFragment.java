@@ -8,6 +8,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,6 +18,8 @@ import com.bulentoral.pawpal.R;
 import com.bulentoral.pawpal.databinding.FragmentHomeBinding;
 import com.bulentoral.pawpal.model.PostAdoptAnimal;
 import com.bulentoral.pawpal.ui.adopt.adapter.PostAdoptationAdapter;
+import com.bulentoral.pawpal.model.ChatroomModel;
+import com.bulentoral.pawpal.model.UserModel;
 import com.bulentoral.pawpal.util.NavigationUtils;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -104,11 +107,23 @@ public class HomeFragment extends Fragment {
 
                     NavigationUtils.navigateToFragment(HomeFragment.this,R.id.action_homeFragment_to_allMessagesFragment);
                     return true;
+                } else if (item.getItemId() == R.id.searchUsers) {
+                    NavigationUtils.navigateToFragment(HomeFragment.this,R.id.action_homeFragment_to_searchFragment);
+                } else if (item.getItemId() == R.id.infoIcon) {
+                    NavigationUtils.navigateToFragment(HomeFragment.this,R.id.action_homeFragment_to_infoFragment);
                 }
                 return false;
             }
         });
 
+    }
+
+    public void gelenVeriyiAl(Bundle bundle) {
+        if (bundle != null) {
+            Log.d("test","çalışıyor");
+            NavigationUtils.navigateToFragment(this, R.id.action_homeFragment_to_messageFragment, bundle);
+
+        }
     }
 
 }
