@@ -43,7 +43,11 @@
         android:id="@+id/infoAdoptFragment"
         android:name="com.bulentoral.pawpal.ui.adopt.InfoAdoptFragment"
         android:label="fragment_info_adopt"
-        tools:layout="@layout/fragment_info_adopt" />
+        tools:layout="@layout/fragment_info_adopt" >
+        <argument
+            android:name="info"
+            app:argType="string[]" />
+    </fragment>
     <fragment
         android:id="@+id/lostAnimalFragment"
         android:name="com.bulentoral.pawpal.LostAnimalFragment"

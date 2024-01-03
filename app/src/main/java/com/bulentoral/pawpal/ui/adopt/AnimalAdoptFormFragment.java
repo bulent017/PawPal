@@ -9,7 +9,6 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -26,7 +25,7 @@ import android.widget.Toast;
 import com.bulentoral.pawpal.R;
 import com.bulentoral.pawpal.databinding.FragmentAnimalAdoptFormBinding;
 import com.bulentoral.pawpal.model.Post;
-import com.bulentoral.pawpal.model.PostType;
+import com.bulentoral.pawpal.model.PostAdoptAnimal;
 import com.bulentoral.pawpal.util.NavigationUtils;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 
@@ -47,7 +46,6 @@ public class AnimalAdoptFormFragment extends Fragment {
     private EditText animalDescription;
     private ImageView animalPicture;
     private Uri imageUri;
-    private final PostType postType= PostType.ADOPTION;
     private AutoCompleteTextView addressAutoCompleteTextView;
 
     private  AdoptAnimalViewModel animalViewModel;
@@ -139,7 +137,7 @@ public class AnimalAdoptFormFragment extends Fragment {
         //String address = addressAutoCompleteTextView.getText().toString();
         String gender = radioGroup.getCheckedRadioButtonId() == R.id.maleRadioButton ? "Male" : "Female";
         String address = "Anakara /Altındağ";
-        animalViewModel.uploadImageAndCreatePost(new Post(postType,name,type,genus,age,gender,description,imageUri.toString(),address));
+        animalViewModel.uploadImageAndCreatePost(new PostAdoptAnimal(name,type,genus,age,gender,description,imageUri.toString(),address));
 
         Log.d("AnimalAdoptFormFragment"+"savePostFirebase", imageUri.toString());
     }

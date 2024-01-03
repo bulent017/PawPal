@@ -95,7 +95,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/resetPasswordButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -125,7 +125,7 @@
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/resetPasswordButton"
         app:layout_constraintVertical_bias="1.0">
 
     </com.google.android.material.button.MaterialButton>
@@ -156,6 +156,7 @@
             android:focusable="true"
             android:padding="10dp"
             android:text="Create"
+            android:textColor="@color/dark_primary_color"
             android:textSize="20sp"
             android:background="?attr/selectableItemBackground"
             android:textStyle="bold" />

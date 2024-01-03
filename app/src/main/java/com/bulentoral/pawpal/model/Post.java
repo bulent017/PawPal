@@ -16,57 +16,40 @@ public class Post {
     //private String healthStatus;
     private String imageUri;
     private Timestamp datePosted;
-    private PostType postType;
-
-    //String postID, String userID, PostType postType, String name, String type, String genus, int age, String gender, String description, String photos, Date datePosted, String address
-    // Adoption attributes
-    private boolean adoptionStatus;
-   // private Date dateAvailable;
-
-    // Lost aniaml attributes
-    private Date dateLost;
     private String address;
-    private double award = 0.0; // Opsiyonel
 
-    public Post(PostType postType,String name , String type, String genus, int age, String gender, String description,  String photos,  String address) {
-
+    //read
+    public Post(String postID, String userID, String name, String type, String genus, int age, String gender, String description, String imageUri, Timestamp datePosted, String address) {
+        this.postID = postID;
+        this.userID = userID;
         this.name = name;
         this.type = type;
         this.genus = genus;
         this.age = age;
         this.gender = gender;
         this.description = description;
-        this.imageUri = photos;
-        this.datePosted = Timestamp.now();
-        // Adoption-specific attributes
-        this.adoptionStatus = false;
-        this.postType = postType;
+        this.imageUri = imageUri;
+        this.datePosted = datePosted;
         this.address = address;
-
-        // Initialize lost animal attributes as null or default
-        this.dateLost = null;
-
-        this.award = 0.0;
+    }
+    //write
+    public Post(String name, String type, String genus, int age, String gender, String description, String imageUri, String address) {
+        this.name = name;
+        this.type = type;
+        this.genus = genus;
+        this.age = age;
+        this.gender = gender;
+        this.description = description;
+        this.imageUri = imageUri;
+        this.datePosted = Timestamp.now();
+        this.address = address;
     }
 
-    public Post(String postID,String userID,PostType postType, String name, String type, String genus, int age, String gender, String description,  String photos, Date dateLost, String address, double award,Timestamp datePosted) {
-        this.userID = userID;
-        this.postID =postID;
-        this.name = name;
-        this.type = type;
-        this.genus = genus;
-        this.age = age;
-        this.gender = gender;
-        this.description = description;
-        this.imageUri = photos;
-        this.datePosted = datePosted;
-        this.postType = postType;
-        // Initialize adoption attributes as null or default
-        this.adoptionStatus = false;
-        // Lost animal-specific attributes
-        this.dateLost = dateLost;
-        this.address = address;
-        this.award = award;
+
+
+
+    public Post(){
+
     }
 
     public String getPostID() {
@@ -149,44 +132,12 @@ public class Post {
         this.datePosted = datePosted;
     }
 
-    public PostType getPostType() {
-        return postType;
-    }
-
-    public void setPostType(PostType postType) {
-        this.postType = postType;
-    }
-
-    public boolean isAdoptionStatus() {
-        return adoptionStatus;
-    }
-
-    public void setAdoptionStatus(boolean adoptionStatus) {
-        this.adoptionStatus = adoptionStatus;
-    }
-
-    public Date getDateLost() {
-        return dateLost;
-    }
-
-    public void setDateLost(Date dateLost) {
-        this.dateLost = dateLost;
-    }
-
     public String getAddress() {
         return address;
     }
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public double getAward() {
-        return award;
-    }
-
-    public void setAward(double award) {
-        this.award = award;
     }
 }
 

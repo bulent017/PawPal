@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bulentoral.pawpal.AuthActivity;
@@ -21,6 +22,8 @@ import com.bulentoral.pawpal.databinding.FragmentLoginBinding;
 import com.bulentoral.pawpal.util.GlideExtensions;
 import com.bulentoral.pawpal.util.NavigationUtils;
 
+import org.w3c.dom.Text;
+
 
 public class LoginFragment extends Fragment {
     private FragmentLoginBinding binding;
@@ -29,6 +32,7 @@ public class LoginFragment extends Fragment {
     private EditText eMail;
     private EditText password;
     private Button loginButton;
+    private TextView resetPasswordButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,11 +57,17 @@ public class LoginFragment extends Fragment {
         eMail = binding.userMail;
         password = binding.userPassword;
         loginButton = binding.loginButton;
-
+        resetPasswordButton = binding.resetPasswordButton;
         binding.toCreateAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavigationUtils.navigateToFragment(LoginFragment.this,R.id.action_loginFragment_to_signUpFragment);
+            }
+        });
+        binding.resetPasswordButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavigationUtils.navigateToFragment(LoginFragment.this,R.id.action_loginFragment_to_resetPasswordFragment);
             }
         });
 
