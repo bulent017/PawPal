@@ -153,6 +153,8 @@ public class MessageFragment extends Fragment {
                         if(task.isSuccessful()){
                             messageInput.setText("");
                             sendNotification(message);
+                        } else {
+                            Toast.makeText(requireContext(),"Bildirim gönderilemedi!",Toast.LENGTH_LONG).show();
                         }
                     }
                 });
@@ -199,8 +201,11 @@ public class MessageFragment extends Fragment {
 
 
                 }catch (Exception e){
-
+                    Toast.makeText(requireContext(),"Bildirim gönderilemedi!",Toast.LENGTH_LONG).show();
                 }
+
+            } else {
+                Toast.makeText(requireContext(),"Bildirim gönderilemedi!",Toast.LENGTH_LONG).show();
 
             }
         });
@@ -215,7 +220,7 @@ public class MessageFragment extends Fragment {
         Request request = new Request.Builder()
                 .url(url)
                 .post(body)
-                .header("Authorization","Bearer YOUR_API_KEY")
+                .header("Authorization","Bearer AAAAIVYwnQc:APA91bF2uNHpv3B7GhndTX5jN-Ks0XzhVcSFDKWX6iWEcpVhlNvqPUKjw4Kqi6UI7Ue4uXuCqpn_9E1hOe0bpEZRkboAmz40JqS9vaFDmvvjaWBgyn0j1zREP7cA_1lsL-omHQ0yvBAT")
                 .build();
         client.newCall(request).enqueue(new Callback() {
             @Override

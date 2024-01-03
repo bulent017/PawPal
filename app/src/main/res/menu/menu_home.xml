@@ -15,7 +15,7 @@
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/info"
+        android:id="@+id/infoIcon"
         android:icon="@drawable/info"
         android:title="Info"
         app:showAsAction="ifRoom" />
