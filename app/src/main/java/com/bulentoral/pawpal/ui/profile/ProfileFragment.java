@@ -21,14 +21,20 @@ import com.bulentoral.pawpal.model.UserModel;
 import com.bulentoral.pawpal.util.FirebaseUtil;
 import com.bulentoral.pawpal.util.NavigationUtils;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.messaging.FirebaseMessaging;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class ProfileFragment extends Fragment {
 
-   private FragmentProfileBinding binding;
+    private FragmentProfileBinding binding;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -46,8 +52,8 @@ public class ProfileFragment extends Fragment {
 
     private void initUI() {
 
-        binding.tabLayoutProfile.addTab(binding.tabLayoutProfile.newTab().setText("Adopt"),0);
-        binding.tabLayoutProfile.addTab(binding.tabLayoutProfile.newTab().setText("Lost Animal"),1);
+        binding.tabLayoutProfile.addTab(binding.tabLayoutProfile.newTab().setText("Adopt"), 0);
+        binding.tabLayoutProfile.addTab(binding.tabLayoutProfile.newTab().setText("Lost Animal"), 1);
 
         binding.tabLayoutProfile.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -80,7 +86,7 @@ public class ProfileFragment extends Fragment {
                 int id = item.getItemId();
 
                 if (id == R.id.editProfile) {
-                    NavigationUtils.navigateToFragment(ProfileFragment.this,R.id.action_profileFragment_to_editProfileFragment);
+                    NavigationUtils.navigateToFragment(ProfileFragment.this, R.id.action_profileFragment_to_editProfileFragment);
 
                     return true;
                 } else if (id == R.id.logOut) {
@@ -88,7 +94,7 @@ public class ProfileFragment extends Fragment {
                     FirebaseMessaging.getInstance().deleteToken().addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            if(task.isSuccessful()){
+                            if (task.isSuccessful()) {
                                 FirebaseUtil.getInstance().logout();
                                 Intent intent = new Intent(getContext(), SplashActivity.class);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -107,32 +113,54 @@ public class ProfileFragment extends Fragment {
         setUIFromFirebase();
 
 
-
     }
 
     private void setUIFromFirebase() {
 
         FirebaseUtil.currentUserDetails().get().addOnCompleteListener(task -> {
-            if(task.isSuccessful()){
+            if (task.isSuccessful()) {
                 UserModel currentUser = task.getResult().toObject(UserModel.class);
-                try{
-                    String fullName = currentUser.getName()+ " " + currentUser.getSurName();
+                try {
+                    String fullName = currentUser.getName() + " " + currentUser.getSurName();
 
                     binding.profileName.setText(fullName);
                     binding.profileEmail.setText(currentUser.geteMail());
                     binding.userNameProfile.setText(currentUser.getUsername());
 
 
-                }catch (Exception e){
-                    Log.d("test","Bilgiler alinirken error verdi: " + e);
+                } catch (Exception e) {
+                    Log.d("test", "Bilgiler alinirken error verdi: " + e);
                 }
 
             } else {
 
-                Log.d("test"," bilgiler alinamadı");
+                Log.d("test", " bilgiler alinamadı");
 
             }
         });
+    }
+
+    private void setStatusTrue(String postId) {
+
+        Map<String, Object> data = new HashMap<>();
+        data.put("adoptionStatus", true);
+
+        // Belgeyi tamamen yeni veriyle değiştirin
+        FirebaseUtil.getAdoptationPostsReference(postId).update(data)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        // Belge başarıyla güncellendiğinde burası çalışır
+                        Log.d("test4", "Belge başarıyla güncellendi!");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Hata oluşursa burası çalışır
+                        Log.w("test4", "Belge güncellenirken hata oluştu!", e);
+                    }
+                });
     }
 
 }
