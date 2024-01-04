@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,7 +18,11 @@ import android.view.ViewGroup;
 import com.bulentoral.pawpal.R;
 import com.bulentoral.pawpal.SplashActivity;
 import com.bulentoral.pawpal.databinding.FragmentProfileBinding;
+import com.bulentoral.pawpal.model.PostAdoptAnimal;
+import com.bulentoral.pawpal.model.PostLostAnimal;
 import com.bulentoral.pawpal.model.UserModel;
+import com.bulentoral.pawpal.ui.adopt.OnAdoptAnimalsFetchedListener;
+import com.bulentoral.pawpal.ui.lost.OnLostAnimalsFetchedListener;
 import com.bulentoral.pawpal.util.FirebaseUtil;
 import com.bulentoral.pawpal.util.NavigationUtils;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -28,12 +33,17 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
 public class ProfileFragment extends Fragment {
 
     private FragmentProfileBinding binding;
+    private PostAdoptAdapter adapter;
+    private PostLostAdapter lostAdapter;
+    private ProfileViewModel viewModel;
+    private TabLayout tabLayout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,11 +57,64 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initUI();
+        viewModel = new ViewModelProvider(this).get(ProfileViewModel.class);
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                switch (tab.getPosition()) {
+                    case 0:
+                        // İlk tab seçildiğinde A tipi veri için adapter set edin
+                        viewModel.fetchAdoptAnimalPosts(new OnAdoptAnimalsFetchedListener() {
+                            @Override
+                            public void onFetched(List<PostAdoptAnimal> adoptAnimalPosts) {
+                                adapter = new PostAdoptAdapter(adoptAnimalPosts,getContext());
+                                binding.recyclerViewAdopt.setAdapter(adapter);
+                            }
+                            @Override
+                            public void onError(Exception e) {
+
+                            }
+                        });
+                        break;
+                    case 1:
+                        // İkinci tab seçildiğinde B tipi veri için adapter set edin
+                        viewModel.fetchAnimalLostAnimalPosts(new OnLostAnimalsFetchedListener() {
+                            @Override
+                            public void onFetched(List<PostLostAnimal> lostAnimal) {
+                                lostAdapter = new PostLostAdapter(lostAnimal,getContext());
+                                binding.recyclerViewAdopt.setAdapter(lostAdapter);
+                            }
+                            @Override
+                            public void onError(Exception e) {
+
+                            }
+                        });
+                        break;
+                    // Daha fazla tab varsa, benzer şekilde işleyin
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+
+
+
 
     }
 
     private void initUI() {
-
+        tabLayout = binding.tabLayoutProfile;
         binding.tabLayoutProfile.addTab(binding.tabLayoutProfile.newTab().setText("Adopt"), 0);
         binding.tabLayoutProfile.addTab(binding.tabLayoutProfile.newTab().setText("Lost Animal"), 1);
 
