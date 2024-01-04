@@ -140,7 +140,7 @@ public class ProfileFragment extends Fragment {
         });
     }
 
-    private void setStatusTrue(String postId) {
+    private void setStatusCheck(String postId) {
 
         Map<String, Object> data = new HashMap<>();
         data.put("adoptionStatus", true);
