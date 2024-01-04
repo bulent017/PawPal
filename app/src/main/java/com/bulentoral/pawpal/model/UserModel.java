@@ -81,4 +81,16 @@ public class UserModel {
         this.surName = surName;
     }
 
+    @Override
+    public String toString() {
+        return "UserModel{" +
+                "eMail='" + eMail + '\'' +
+                ", username='" + username + '\'' +
+                ", createdTimestamp=" + createdTimestamp +
+                ", userId='" + userId + '\'' +
+                ", name='" + name + '\'' +
+                ", surName='" + surName + '\'' +
+                ", fcmToken='" + fcmToken + '\'' +
+                '}';
+    }
 }

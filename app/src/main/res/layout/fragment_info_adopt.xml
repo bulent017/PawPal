@@ -159,7 +159,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView18" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/loginButton"
+        android:id="@+id/contactOwnerButton"
         style="@style/Custom.FilledBackGroundAuth"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -202,7 +202,7 @@
         android:layout_marginBottom="16dp"
         android:text="Description:"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/loginButton"
+        app:layout_constraintBottom_toTopOf="@+id/contactOwnerButton"
         app:layout_constraintStart_toStartOf="@+id/textView18"
         app:layout_constraintTop_toBottomOf="@+id/textView18"
         app:layout_constraintVertical_bias="0.0" />
@@ -216,7 +216,7 @@
         android:layout_marginBottom="16dp"
         android:text="TextView"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/loginButton"
+        app:layout_constraintBottom_toTopOf="@+id/contactOwnerButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toTopOf="@+id/textView6"
