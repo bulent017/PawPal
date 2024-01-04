@@ -33,6 +33,7 @@ import com.bulentoral.pawpal.databinding.FragmentAnimalLostFormBinding;
 import com.bulentoral.pawpal.model.PostAdoptAnimal;
 import com.bulentoral.pawpal.model.PostLostAnimal;
 import com.bulentoral.pawpal.ui.adopt.AnimalAdoptFormFragment;
+import com.bulentoral.pawpal.util.AndroidUtil;
 import com.bulentoral.pawpal.util.NavigationUtils;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -153,6 +154,7 @@ public class AnimalLostFormFragment extends Fragment {
         binding.materialToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                AndroidUtil.makeNavigationBarVisible(getActivity());
                 NavigationUtils.navigateUp(AnimalLostFormFragment.this);
             }
         });

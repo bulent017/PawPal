@@ -229,4 +229,9 @@ public class MessageFragment extends Fragment {
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        binding.enterMessageEditText.requestFocus();
+    }
 }

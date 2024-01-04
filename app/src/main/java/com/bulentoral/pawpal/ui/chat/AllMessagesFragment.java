@@ -64,6 +64,8 @@ public class AllMessagesFragment extends Fragment implements RecentChatRecyclerA
         binding.toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                AndroidUtil.makeNavigationBarVisible(getActivity());
                 NavigationUtils.navigateUp(AllMessagesFragment.this);
             }
         });

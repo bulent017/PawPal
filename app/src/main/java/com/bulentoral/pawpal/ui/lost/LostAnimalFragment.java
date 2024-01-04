@@ -22,6 +22,7 @@ import com.bulentoral.pawpal.ui.adopt.HomeFragmentDirections;
 import com.bulentoral.pawpal.ui.adopt.OnAdoptAnimalsFetchedListener;
 import com.bulentoral.pawpal.ui.adopt.adapter.PostAdoptationAdapter;
 import com.bulentoral.pawpal.ui.lost.adapter.PostLostAdapter;
+import com.bulentoral.pawpal.util.AndroidUtil;
 import com.bulentoral.pawpal.util.NavigationUtils;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -49,7 +50,7 @@ public class LostAnimalFragment extends Fragment {
                 progressBar.setVisibility(View.GONE);
                 // Başarılı veri çekme işlemi
                 // Burada RecyclerView adapterınızı güncelleyin veya UI'da gösterin
-                adapter = new PostLostAdapter(lostAnimalPosts, new AnimalLostPostClickListener() {
+                adapter = new PostLostAdapter(lostAnimalPosts,getActivity(), new AnimalLostPostClickListener() {
 
                     @Override
                     public void onMovieClicked(String postID, String userID, String name, String type, String genus, int age, String gender, String description, String imageUri, String address, String dateLost, double award) {
@@ -88,6 +89,7 @@ public class LostAnimalFragment extends Fragment {
         binding.floatingActionButtonLost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                AndroidUtil.makeNavigationBarInvisible(getActivity());
                 NavigationUtils.navigateToFragment(LostAnimalFragment.this, R.id.action_lostAnimalFragment_to_animalLostFormFragment);
             }
         });

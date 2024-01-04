@@ -1,14 +1,22 @@
 package com.bulentoral.pawpal.util;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
+
+import com.bulentoral.pawpal.R;
 import com.bulentoral.pawpal.model.UserModel;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class AndroidUtil {
     public static void passUserModelAsIntent(Intent intent, UserModel model){
@@ -50,6 +58,15 @@ public class AndroidUtil {
             return userModel;
         }
         return null;  // Eğer bundle null ise null döndürülebilir ya da başka bir hata işleme yöntemi kullanılabilir.
+    }
+
+    public static void makeNavigationBarInvisible(FragmentActivity activity) {
+        BottomNavigationView bottomNavigationView = ((AppCompatActivity) activity).findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setVisibility(View.GONE);
+    }
+    public static void makeNavigationBarVisible(FragmentActivity activity) {
+        BottomNavigationView bottomNavigationView = ((AppCompatActivity) activity).findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setVisibility(View.VISIBLE);
     }
 
 

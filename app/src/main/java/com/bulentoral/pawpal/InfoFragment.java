@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import com.bulentoral.pawpal.databinding.FragmentInfoBinding;
 import com.bulentoral.pawpal.service.AnimalClient;
 import com.bulentoral.pawpal.service.AnimalResponse;
+import com.bulentoral.pawpal.util.AndroidUtil;
 import com.bulentoral.pawpal.util.NavigationUtils;
 
 import java.util.Objects;
@@ -43,6 +44,7 @@ public class InfoFragment extends Fragment {
         binding.materialToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                AndroidUtil.makeNavigationBarVisible(getActivity());
                 NavigationUtils.navigateUp(InfoFragment.this);
             }
         });

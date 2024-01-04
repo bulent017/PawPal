@@ -4,16 +4,18 @@ package com.bulentoral.pawpal.ui.adopt.adapter;
 import static com.bulentoral.pawpal.util.GlideExtensions.loadSquareImageFromURL;
 
 import android.view.LayoutInflater;
-        import android.view.ViewGroup;
+import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
 
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bulentoral.pawpal.databinding.ItemViewHomeBinding;
 import com.bulentoral.pawpal.databinding.ListItemLostAnimalBinding;
 import com.bulentoral.pawpal.model.PostAdoptAnimal;
 import com.bulentoral.pawpal.ui.adopt.AnimalPostClickListener;
+import com.bulentoral.pawpal.util.AndroidUtil;
 import com.google.firebase.Timestamp;
 
 import java.text.SimpleDateFormat;
@@ -26,14 +28,16 @@ public class PostAdoptationAdapter extends RecyclerView.Adapter<PostAdoptationAd
     private List<PostAdoptAnimal> postAdoptAnimalList;
     private AnimalPostClickListener animalPostClickListener;
 
-    private List<PostAdoptAnimal>  filterPostList;
+    private List<PostAdoptAnimal> filterPostList;
+    private FragmentActivity fragmentActivity;
 
-    public  PostAdoptationAdapter(List<PostAdoptAnimal> movieList,
+    public PostAdoptationAdapter(List<PostAdoptAnimal> movieList, FragmentActivity fragmentActivity,
                                  AnimalPostClickListener animalPostClickListener
     ) {
         this.postAdoptAnimalList = movieList;
         this.animalPostClickListener = animalPostClickListener;
         this.filterPostList = new ArrayList<>(postAdoptAnimalList);
+        this.fragmentActivity = fragmentActivity;
     }
 
     @Override
@@ -54,10 +58,12 @@ public class PostAdoptationAdapter extends RecyclerView.Adapter<PostAdoptationAd
         holder.binding.getRoot().setOnClickListener(view -> {
             if (animalPostClickListener != null && postAdoptAnimal.getPostID() != null) {
                 animalPostClickListener.onMovieClicked(postAdoptAnimal.getPostID(), postAdoptAnimal.getUserID(),
-                        postAdoptAnimal.getName(),postAdoptAnimal.getType(),
-                        postAdoptAnimal.getGenus(),postAdoptAnimal.getAge(),
-                        postAdoptAnimal.getGender(),postAdoptAnimal.getDescription(),postAdoptAnimal.getImageUri(),
+                        postAdoptAnimal.getName(), postAdoptAnimal.getType(),
+                        postAdoptAnimal.getGenus(), postAdoptAnimal.getAge(),
+                        postAdoptAnimal.getGender(), postAdoptAnimal.getDescription(), postAdoptAnimal.getImageUri(),
                         postAdoptAnimal.getAddress());
+
+                AndroidUtil.makeNavigationBarInvisible(fragmentActivity);
             }
         });
     }
@@ -71,19 +77,19 @@ public class PostAdoptationAdapter extends RecyclerView.Adapter<PostAdoptationAd
     public Filter getFilter() {
         return postFilter;
     }
-    private Filter postFilter = new Filter(){
+
+    private Filter postFilter = new Filter() {
 
         @Override
         protected FilterResults performFiltering(CharSequence charSequence) {
             List<PostAdoptAnimal> filteredList = new ArrayList<>();
-            if(charSequence==null || charSequence.length() == 0){
+            if (charSequence == null || charSequence.length() == 0) {
                 filteredList.addAll(filterPostList);
-            }
-            else{
-                String filterPattern  = charSequence.toString().toLowerCase().trim();
-                for (PostAdoptAnimal item: filterPostList
-                     ) {
-                    if (item.getAddress().toLowerCase().contains(filterPattern)){
+            } else {
+                String filterPattern = charSequence.toString().toLowerCase().trim();
+                for (PostAdoptAnimal item : filterPostList
+                ) {
+                    if (item.getAddress().toLowerCase().contains(filterPattern)) {
                         filteredList.add(item);
                     }
                 }
@@ -118,6 +124,6 @@ public class PostAdoptationAdapter extends RecyclerView.Adapter<PostAdoptationAd
         return formatter.format(date);
     }
 }
-    //String postID, String userID, String name, String type, String genus, int age, String gender, String description, String imageUri, Timestamp datePosted, String address, boolean adoptionStatus
+//String postID, String userID, String name, String type, String genus, int age, String gender, String description, String imageUri, Timestamp datePosted, String address, boolean adoptionStatus
 
 

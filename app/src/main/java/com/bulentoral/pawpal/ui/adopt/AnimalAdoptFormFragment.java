@@ -30,6 +30,7 @@ import com.bulentoral.pawpal.R;
 import com.bulentoral.pawpal.databinding.FragmentAnimalAdoptFormBinding;
 import com.bulentoral.pawpal.model.Post;
 import com.bulentoral.pawpal.model.PostAdoptAnimal;
+import com.bulentoral.pawpal.util.AndroidUtil;
 import com.bulentoral.pawpal.util.NavigationUtils;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 
@@ -130,6 +131,7 @@ public class AnimalAdoptFormFragment extends Fragment {
         binding.materialToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                AndroidUtil.makeNavigationBarVisible(getActivity());
                 NavigationUtils.navigateUp(AnimalAdoptFormFragment.this);
             }
         });

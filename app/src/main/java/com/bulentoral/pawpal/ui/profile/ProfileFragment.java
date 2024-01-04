@@ -84,12 +84,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 int id = item.getItemId();
-
-                if (id == R.id.editProfile) {
-                    NavigationUtils.navigateToFragment(ProfileFragment.this, R.id.action_profileFragment_to_editProfileFragment);
-
-                    return true;
-                } else if (id == R.id.logOut) {
+                if (id == R.id.logOut) {
                     // Log Out seçeneği seçildiğinde yapılacak işlemler
                     FirebaseMessaging.getInstance().deleteToken().addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override

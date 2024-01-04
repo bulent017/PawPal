@@ -4,6 +4,7 @@ import static com.bulentoral.pawpal.util.NavigationUtils.navigateToFragment;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
@@ -24,7 +25,9 @@ import com.bulentoral.pawpal.model.PostAdoptAnimal;
 import com.bulentoral.pawpal.ui.adopt.adapter.PostAdoptationAdapter;
 import com.bulentoral.pawpal.model.ChatroomModel;
 import com.bulentoral.pawpal.model.UserModel;
+import com.bulentoral.pawpal.util.AndroidUtil;
 import com.bulentoral.pawpal.util.NavigationUtils;
+import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
@@ -54,7 +57,7 @@ public class HomeFragment extends Fragment {
                 progressBar.setVisibility(View.GONE);
                 // Başarılı veri çekme işlemi
                 // Burada RecyclerView adapterınızı güncelleyin veya UI'da gösterin
-                adapter = new PostAdoptationAdapter(adoptAnimalPosts, new AnimalPostClickListener() {
+                adapter = new PostAdoptationAdapter(adoptAnimalPosts, getActivity(),new AnimalPostClickListener() {
                     @Override
                     public void onMovieClicked(String postID, String userID, String name, String type, String genus, int age, String gender, String description, String imageUri, String address) {
                         if (postID != null && userID != null && name != null && type != null && genus != null && gender != null && description != null && imageUri != null && address != null) {
@@ -98,6 +101,7 @@ public class HomeFragment extends Fragment {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AndroidUtil.makeNavigationBarInvisible(getActivity());
                 NavigationUtils.navigateToFragment(HomeFragment.this, R.id.action_homeFragment_to_animalAdoptFormFragment);
             }
         });
@@ -107,7 +111,7 @@ public class HomeFragment extends Fragment {
             public boolean onMenuItemClick(MenuItem item) {
 
                 if (item.getItemId() == R.id.iconMessage) {
-
+                    AndroidUtil.makeNavigationBarInvisible(getActivity());
                     NavigationUtils.navigateToFragment(HomeFragment.this,R.id.action_homeFragment_to_allMessagesFragment);
                     return true;
                 } else if (item.getItemId() == R.id.searchPost) {
@@ -129,6 +133,7 @@ public class HomeFragment extends Fragment {
                     return true;
 
                 } else if (item.getItemId() == R.id.infoIcon) {
+                    AndroidUtil.makeNavigationBarInvisible(getActivity());
                     NavigationUtils.navigateToFragment(HomeFragment.this,R.id.action_homeFragment_to_infoFragment);
                 }
                 return false;
