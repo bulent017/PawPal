@@ -90,6 +90,8 @@ public class InfoAdoptFragment extends Fragment {
         binding.materialToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                AndroidUtil.makeNavigationBarVisible(getActivity());
                 NavigationUtils.navigateUp(InfoAdoptFragment.this);
             }
         });

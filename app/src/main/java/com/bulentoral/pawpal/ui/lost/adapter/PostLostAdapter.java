@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bulentoral.pawpal.databinding.ListItemLostAnimalBinding;
@@ -14,6 +15,7 @@ import com.bulentoral.pawpal.model.PostLostAnimal;
 import com.bulentoral.pawpal.ui.adopt.AnimalPostClickListener;
 import com.bulentoral.pawpal.ui.adopt.adapter.PostAdoptationAdapter;
 import com.bulentoral.pawpal.ui.lost.AnimalLostPostClickListener;
+import com.bulentoral.pawpal.util.AndroidUtil;
 import com.google.firebase.Timestamp;
 
 import java.text.SimpleDateFormat;
@@ -25,12 +27,14 @@ public class PostLostAdapter extends RecyclerView.Adapter<PostLostAdapter.ViewHo
 
     private List<PostLostAnimal> postLostAnimalList;
     private AnimalLostPostClickListener animalPostClickListener;
+    private FragmentActivity fragmentActivity;
 
-    public  PostLostAdapter(List<PostLostAnimal> lostAnimalList,
+    public  PostLostAdapter(List<PostLostAnimal> lostAnimalList, FragmentActivity fragmentActivity,
                             AnimalLostPostClickListener animalPostClickListener
     ) {
         this.postLostAnimalList = lostAnimalList;
         this.animalPostClickListener = animalPostClickListener;
+        this.fragmentActivity = fragmentActivity;
     }
 
 
@@ -59,6 +63,7 @@ public class PostLostAdapter extends RecyclerView.Adapter<PostLostAdapter.ViewHo
                         postLostAnimal.getGenus(),postLostAnimal.getAge(),
                         postLostAnimal.getGender(),postLostAnimal.getDescription(),postLostAnimal.getImageUri(),
                         postLostAnimal.getAddress(),postLostAnimal.getDateLost(),postLostAnimal.getAward());
+                AndroidUtil.makeNavigationBarInvisible(fragmentActivity);
             }
         });
     }
