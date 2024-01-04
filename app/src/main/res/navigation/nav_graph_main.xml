@@ -89,9 +89,12 @@
         android:name="com.bulentoral.pawpal.ui.lost.InfoLostAnimalFragment"
         android:label="fragment_info_lost_animal"
         tools:layout="@layout/fragment_info_lost_animal" >
+        <argument
+            android:name="dataInfo"
+            app:argType="string[]" />
         <action
-            android:id="@+id/action_infoLostAnimalFragment_to_lostAnimalFragment"
-            app:destination="@id/lostAnimalFragment" />
+            android:id="@+id/action_infoLostAnimalFragment_to_messageFragment"
+            app:destination="@id/messageFragment" />
     </fragment>
     <fragment
         android:id="@+id/editProfileFragment"

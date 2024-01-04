@@ -135,6 +135,7 @@ public class InfoAdoptFragment extends Fragment {
             address.setText(data[9]);
             age.setText(data[5]);
             gender.setText(data[6]);
+
             loadSquareImageFromURL(imaegView3.getContext(), data[8], imaegView3);
 
         }

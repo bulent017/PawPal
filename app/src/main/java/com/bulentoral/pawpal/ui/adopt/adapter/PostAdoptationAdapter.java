@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
         import androidx.recyclerview.widget.RecyclerView;
 
 import com.bulentoral.pawpal.databinding.ItemViewHomeBinding;
+import com.bulentoral.pawpal.databinding.ListItemLostAnimalBinding;
 import com.bulentoral.pawpal.model.PostAdoptAnimal;
 import com.bulentoral.pawpal.ui.adopt.AnimalPostClickListener;
 import com.google.firebase.Timestamp;

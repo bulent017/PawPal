@@ -3,6 +3,8 @@ package com.bulentoral.pawpal.ui.lost;
 import android.net.Uri;
 import android.util.Log;
 
+import androidx.lifecycle.ViewModel;
+
 import com.bulentoral.pawpal.model.PostAdoptAnimal;
 import com.bulentoral.pawpal.model.PostLostAnimal;
 import com.bulentoral.pawpal.ui.adopt.OnAdoptAnimalsFetchedListener;
@@ -19,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class LostAnimalViewModel {
+public class LostAnimalViewModel extends ViewModel {
 
     private static final String TAG = "LostAnimalViewModel";
 
@@ -82,7 +84,7 @@ public class LostAnimalViewModel {
     }
 
     public void fetchLostAnimalPosts(OnLostAnimalsFetchedListener listener) {
-        firebaseFirestore.collection("adoptationPosts")
+        firebaseFirestore.collection("lostAnimalPosts")
                 .orderBy("datePosted", Query.Direction.DESCENDING) // Yeni postlar üstte olacak şekilde sırala
                 .get()
                 .addOnCompleteListener(task -> {

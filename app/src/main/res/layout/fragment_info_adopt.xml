@@ -85,7 +85,7 @@
                         android:layout_height="match_parent"
                         android:clickable="false"
                         android:focusable="false"
-                        android:hint="Age"
+                        android:hint="Gender"
                         android:inputType="none"
                         android:maxLines="1"
                         app:layout_constraintEnd_toEndOf="parent"

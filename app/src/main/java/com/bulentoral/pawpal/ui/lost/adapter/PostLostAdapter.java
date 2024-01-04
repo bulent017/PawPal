@@ -8,32 +8,33 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bulentoral.pawpal.databinding.ItemViewHomeBinding;
 import com.bulentoral.pawpal.databinding.ListItemLostAnimalBinding;
 import com.bulentoral.pawpal.model.PostAdoptAnimal;
 import com.bulentoral.pawpal.model.PostLostAnimal;
 import com.bulentoral.pawpal.ui.adopt.AnimalPostClickListener;
 import com.bulentoral.pawpal.ui.adopt.adapter.PostAdoptationAdapter;
+import com.bulentoral.pawpal.ui.lost.AnimalLostPostClickListener;
 import com.google.firebase.Timestamp;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-/*
+
 public class PostLostAdapter extends RecyclerView.Adapter<PostLostAdapter.ViewHolder> {
 
     private List<PostLostAnimal> postLostAnimalList;
-    private AnimalPostClickListener animalPostClickListener;
+    private AnimalLostPostClickListener animalPostClickListener;
 
-    public  PostLostAdapter(List<PostLostAnimal> movieList,
-                                  AnimalPostClickListener animalPostClickListener
+    public  PostLostAdapter(List<PostLostAnimal> lostAnimalList,
+                            AnimalLostPostClickListener animalPostClickListener
     ) {
-        this.postLostAnimalList = movieList;
+        this.postLostAnimalList = lostAnimalList;
         this.animalPostClickListener = animalPostClickListener;
     }
 
 
+    @NonNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
@@ -45,32 +46,32 @@ public class PostLostAdapter extends RecyclerView.Adapter<PostLostAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        PostAdoptAnimal postAdoptAnimal = postAdoptAnimalList.get(position);
-        holder.binding.addressText.setText(postAdoptAnimal.getAddress());
-        loadSquareImageFromURL(holder.binding.imageView.getContext(), postAdoptAnimal.getImageUri(), holder.binding.imageView);
-        holder.binding.descriptionText.setText(postAdoptAnimal.getDescription());
-        holder.binding.datePostedText.setText(convertTimestampToString(postAdoptAnimal.getDatePosted()));
-
+        PostLostAnimal postLostAnimal = postLostAnimalList.get(position);
+        holder.binding.addressText.setText(postLostAnimal.getAddress());
+        loadSquareImageFromURL(holder.binding.imageView.getContext(), postLostAnimal.getImageUri(), holder.binding.imageView);
+        holder.binding.descriptionText.setText(postLostAnimal.getDescription());
+        holder.binding.datePostedText.setText(convertTimestampToString(postLostAnimal.getDatePosted()));
+        holder.binding.awardText.setText( String.valueOf(postLostAnimal.getAward()));
         holder.binding.getRoot().setOnClickListener(view -> {
-            if (animalPostClickListener != null && postAdoptAnimal.getPostID() != null) {
-                animalPostClickListener.onMovieClicked(postAdoptAnimal.getPostID(), postAdoptAnimal.getUserID(),
-                        postAdoptAnimal.getName(),postAdoptAnimal.getType(),
-                        postAdoptAnimal.getGenus(),postAdoptAnimal.getAge(),
-                        postAdoptAnimal.getGender(),postAdoptAnimal.getDescription(),postAdoptAnimal.getImageUri(),
-                        postAdoptAnimal.getAddress());
+            if (animalPostClickListener != null && postLostAnimal.getPostID() != null) {
+                animalPostClickListener.onMovieClicked(postLostAnimal.getPostID(), postLostAnimal.getUserID(),
+                        postLostAnimal.getName(),postLostAnimal.getType(),
+                        postLostAnimal.getGenus(),postLostAnimal.getAge(),
+                        postLostAnimal.getGender(),postLostAnimal.getDescription(),postLostAnimal.getImageUri(),
+                        postLostAnimal.getAddress(),postLostAnimal.getDateLost(),postLostAnimal.getAward());
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return postAdoptAnimalList.size();
+        return postLostAnimalList.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        ItemViewHomeBinding binding;
+        ListItemLostAnimalBinding binding;
 
-        public ViewHolder(ItemViewHomeBinding binding) {
+        public ViewHolder(ListItemLostAnimalBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }
@@ -85,4 +86,4 @@ public class PostLostAdapter extends RecyclerView.Adapter<PostLostAdapter.ViewHo
     }
 }
 
- */
+
