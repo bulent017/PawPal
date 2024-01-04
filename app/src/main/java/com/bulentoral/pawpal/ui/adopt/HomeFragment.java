@@ -119,13 +119,11 @@ public class HomeFragment extends Fragment {
                     searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                         @Override
                         public boolean onQueryTextSubmit(String query) {
-                            // Opsiyonel: Arama düğmesine basıldığında
                             return false;
                         }
 
                         @Override
                         public boolean onQueryTextChange(String newText) {
-                            // Burada adapterınızın filtreleme fonksiyonunu çağırın
                             adapter.getFilter().filter(newText);
                             return false;
                         }
