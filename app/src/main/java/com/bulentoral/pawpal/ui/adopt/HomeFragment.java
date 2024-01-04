@@ -4,12 +4,15 @@ import static com.bulentoral.pawpal.util.NavigationUtils.navigateToFragment;
 
 import android.os.Bundle;
 
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +35,7 @@ public class HomeFragment extends Fragment {
     private FloatingActionButton addButton;
     private AdoptAnimalViewModel viewModel;
     private ProgressBar progressBar;
+    private SearchView searchView;
     private PostAdoptationAdapter adapter;
 
     @Override
@@ -107,6 +111,22 @@ public class HomeFragment extends Fragment {
                     NavigationUtils.navigateToFragment(HomeFragment.this,R.id.action_homeFragment_to_allMessagesFragment);
                     return true;
                 } else if (item.getItemId() == R.id.searchPost) {
+                    SearchView searchView = (SearchView) item.getActionView();
+                    searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                        @Override
+                        public boolean onQueryTextSubmit(String query) {
+                            // Opsiyonel: Arama düğmesine basıldığında
+                            return false;
+                        }
+
+                        @Override
+                        public boolean onQueryTextChange(String newText) {
+                            // Burada adapterınızın filtreleme fonksiyonunu çağırın
+                            adapter.getFilter().filter(newText);
+                            return false;
+                        }
+                    });
+                    return true;
 
                 } else if (item.getItemId() == R.id.infoIcon) {
                     NavigationUtils.navigateToFragment(HomeFragment.this,R.id.action_homeFragment_to_infoFragment);
@@ -124,5 +144,6 @@ public class HomeFragment extends Fragment {
 
         }
     }
+
 
 }

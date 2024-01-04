@@ -14,10 +14,7 @@
         android:id="@+id/mapsFragment"
         android:icon="@drawable/location"
         />
-    <item android:title="Donation"
-        android:id="@+id/donation"
-        android:icon="@drawable/shopping"
-        />
+
 
     <item android:title="Profile"
         android:id="@+id/profileFragment"

@@ -5,7 +5,10 @@ import static com.bulentoral.pawpal.util.GlideExtensions.loadSquareImageFromURL;
 
 import android.view.LayoutInflater;
         import android.view.ViewGroup;
-        import androidx.recyclerview.widget.RecyclerView;
+import android.widget.Filter;
+import android.widget.Filterable;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bulentoral.pawpal.databinding.ItemViewHomeBinding;
 import com.bulentoral.pawpal.databinding.ListItemLostAnimalBinding;
@@ -14,19 +17,23 @@ import com.bulentoral.pawpal.ui.adopt.AnimalPostClickListener;
 import com.google.firebase.Timestamp;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class PostAdoptationAdapter extends RecyclerView.Adapter<PostAdoptationAdapter.ViewHolder> {
+public class PostAdoptationAdapter extends RecyclerView.Adapter<PostAdoptationAdapter.ViewHolder> implements Filterable {
 
     private List<PostAdoptAnimal> postAdoptAnimalList;
     private AnimalPostClickListener animalPostClickListener;
+
+    private List<PostAdoptAnimal>  filterPostList;
 
     public  PostAdoptationAdapter(List<PostAdoptAnimal> movieList,
                                  AnimalPostClickListener animalPostClickListener
     ) {
         this.postAdoptAnimalList = movieList;
         this.animalPostClickListener = animalPostClickListener;
+        this.filterPostList = new ArrayList<>(postAdoptAnimalList);
     }
 
     @Override
@@ -59,6 +66,40 @@ public class PostAdoptationAdapter extends RecyclerView.Adapter<PostAdoptationAd
     public int getItemCount() {
         return postAdoptAnimalList.size();
     }
+
+    @Override
+    public Filter getFilter() {
+        return postFilter;
+    }
+    private Filter postFilter = new Filter(){
+
+        @Override
+        protected FilterResults performFiltering(CharSequence charSequence) {
+            List<PostAdoptAnimal> filteredList = new ArrayList<>();
+            if(charSequence==null || charSequence.length() == 0){
+                filteredList.addAll(filterPostList);
+            }
+            else{
+                String filterPattern  = charSequence.toString().toLowerCase().trim();
+                for (PostAdoptAnimal item: filterPostList
+                     ) {
+                    if (item.getAddress().toLowerCase().contains(filterPattern)){
+                        filteredList.add(item);
+                    }
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+            postAdoptAnimalList.clear();
+            postAdoptAnimalList.addAll((List) filterResults.values);
+            notifyDataSetChanged();
+        }
+    };
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ItemViewHomeBinding binding;
