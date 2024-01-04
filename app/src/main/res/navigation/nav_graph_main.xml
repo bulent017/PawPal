@@ -36,7 +36,7 @@
         tools:layout="@layout/fragment_maps" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.bulentoral.pawpal.ProfileFragment"
+        android:name="com.bulentoral.pawpal.ui.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -59,7 +59,7 @@
     </fragment>
     <fragment
         android:id="@+id/lostAnimalFragment"
-        android:name="com.bulentoral.pawpal.LostAnimalFragment"
+        android:name="com.bulentoral.pawpal.ui.lost.LostAnimalFragment"
         android:label="fragment_lost_animal"
         tools:layout="@layout/fragment_lost_animal" >
         <action
@@ -74,7 +74,7 @@
     </fragment>
     <fragment
         android:id="@+id/animalLostFormFragment"
-        android:name="com.bulentoral.pawpal.AnimalLostFormFragment"
+        android:name="com.bulentoral.pawpal.ui.lost.AnimalLostFormFragment"
         android:label="fragment_animal_lost_form"
         tools:layout="@layout/fragment_animal_lost_form" >
         <action
@@ -83,7 +83,7 @@
     </fragment>
     <fragment
         android:id="@+id/infoLostAnimalFragment"
-        android:name="com.bulentoral.pawpal.InfoLostAnimalFragment"
+        android:name="com.bulentoral.pawpal.ui.lost.InfoLostAnimalFragment"
         android:label="fragment_info_lost_animal"
         tools:layout="@layout/fragment_info_lost_animal" >
         <action
@@ -92,7 +92,7 @@
     </fragment>
     <fragment
         android:id="@+id/editProfileFragment"
-        android:name="com.bulentoral.pawpal.EditProfileFragment"
+        android:name="com.bulentoral.pawpal.ui.profile.EditProfileFragment"
         android:label="fragment_edit_profile"
         tools:layout="@layout/fragment_edit_profile" />
     <fragment

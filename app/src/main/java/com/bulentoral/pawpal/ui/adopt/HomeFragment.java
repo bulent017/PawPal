@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.bulentoral.pawpal.R;
 import com.bulentoral.pawpal.databinding.FragmentHomeBinding;
@@ -30,7 +31,7 @@ public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
     private FloatingActionButton addButton;
     private AdoptAnimalViewModel viewModel;
-
+    private ProgressBar progressBar;
     private PostAdoptationAdapter adapter;
 
     @Override
@@ -46,6 +47,7 @@ public class HomeFragment extends Fragment {
         viewModel.fetchAdoptAnimalPosts(new OnAdoptAnimalsFetchedListener() {
             @Override
             public void onFetched(List<PostAdoptAnimal> adoptAnimalPosts) {
+                progressBar.setVisibility(View.GONE);
                 // Başarılı veri çekme işlemi
                 // Burada RecyclerView adapterınızı güncelleyin veya UI'da gösterin
                 adapter = new PostAdoptationAdapter(adoptAnimalPosts, new AnimalPostClickListener() {
@@ -60,7 +62,7 @@ public class HomeFragment extends Fragment {
 
 
                         } else {
-                            // Verilerden en az biri null, bu durumu ele almak için gerekli işlemleri yapabilirsiniz.
+                            // null check
                         }
 
                     }
@@ -87,14 +89,11 @@ public class HomeFragment extends Fragment {
     private  void initUI(){
 
         addButton = binding.addAnimalPost;
-
+        progressBar = binding.progressBarHome;
+        progressBar.setVisibility(View.VISIBLE);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-
-
                 NavigationUtils.navigateToFragment(HomeFragment.this, R.id.action_homeFragment_to_animalAdoptFormFragment);
             }
         });

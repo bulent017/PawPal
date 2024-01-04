@@ -1,39 +1,47 @@
-package com.bulentoral.pawpal.ui.adopt.adapter;
-
+package com.bulentoral.pawpal.ui.lost.adapter;
 
 import static com.bulentoral.pawpal.util.GlideExtensions.loadSquareImageFromURL;
 
 import android.view.LayoutInflater;
-        import android.view.ViewGroup;
-        import androidx.recyclerview.widget.RecyclerView;
+import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bulentoral.pawpal.databinding.ItemViewHomeBinding;
+import com.bulentoral.pawpal.databinding.ListItemLostAnimalBinding;
 import com.bulentoral.pawpal.model.PostAdoptAnimal;
+import com.bulentoral.pawpal.model.PostLostAnimal;
 import com.bulentoral.pawpal.ui.adopt.AnimalPostClickListener;
+import com.bulentoral.pawpal.ui.adopt.adapter.PostAdoptationAdapter;
 import com.google.firebase.Timestamp;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-public class PostAdoptationAdapter extends RecyclerView.Adapter<PostAdoptationAdapter.ViewHolder> {
+/*
+public class PostLostAdapter extends RecyclerView.Adapter<PostLostAdapter.ViewHolder> {
 
-    private List<PostAdoptAnimal> postAdoptAnimalList;
+    private List<PostLostAnimal> postLostAnimalList;
     private AnimalPostClickListener animalPostClickListener;
 
-    public  PostAdoptationAdapter(List<PostAdoptAnimal> movieList,
-                                 AnimalPostClickListener animalPostClickListener
+    public  PostLostAdapter(List<PostLostAnimal> movieList,
+                                  AnimalPostClickListener animalPostClickListener
     ) {
-        this.postAdoptAnimalList = movieList;
+        this.postLostAnimalList = movieList;
         this.animalPostClickListener = animalPostClickListener;
     }
+
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        ItemViewHomeBinding binding = ItemViewHomeBinding.inflate(inflater, parent, false);
+        ListItemLostAnimalBinding binding = ListItemLostAnimalBinding.inflate(inflater, parent, false);
         return new ViewHolder(binding);
     }
+
+
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
@@ -76,6 +84,5 @@ public class PostAdoptationAdapter extends RecyclerView.Adapter<PostAdoptationAd
         return formatter.format(date);
     }
 }
-    //String postID, String userID, String name, String type, String genus, int age, String gender, String description, String imageUri, Timestamp datePosted, String address, boolean adoptionStatus
 
-
+ */

@@ -1,13 +1,9 @@
 package com.bulentoral.pawpal.ui.chat;
 
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,8 +17,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bulentoral.pawpal.InfoLostAnimalFragment;
-import com.bulentoral.pawpal.R;
 import com.bulentoral.pawpal.adapter.ChatRecyclerAdapter;
 import com.bulentoral.pawpal.databinding.FragmentMessageBinding;
 import com.bulentoral.pawpal.model.ChatMessageModel;
@@ -42,7 +36,6 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.Objects;
 
 import okhttp3.Call;
 import okhttp3.Callback;

@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,15 +22,16 @@ import com.bulentoral.pawpal.util.NavigationUtils;
 public class InfoAdoptFragment extends Fragment {
     private FragmentInfoAdoptBinding binding;
 
-    private TextView name;
-    private TextView address;
-    private TextView type;
-    private TextView genus;
-    private TextView age;
-    private TextView gender;
-    private TextView description;
+    private EditText name;
+    private EditText address;
+    private EditText type;
+    private EditText genus;
+    private EditText age;
+    private EditText gender;
+    private EditText description;
     private ImageView imaegView3;
 
+    private Button contactButton;
     private String postUserID;
     private String postID;
 
@@ -49,15 +52,15 @@ public class InfoAdoptFragment extends Fragment {
 
     private void initUI() {
 
-        name = binding.name;
-        type = binding.type;
-        genus = binding.genus;
-        age = binding.age;
-        gender = binding.gender;
-        address = binding.address;
-        description = binding.descripton;
-        imaegView3 = binding.imageView3;
-
+        name = binding.animalNameText;
+        type = binding.animalTypeText;
+        genus = binding.animalCinsText;
+        age = binding.animalAgeText;
+        gender = binding.animalGenderText;
+        address = binding.infoAddressText;
+        description = binding.infoExtraText;
+        imaegView3 = binding.animalPicture;
+        contactButton = binding.contactButton;
 
 
 

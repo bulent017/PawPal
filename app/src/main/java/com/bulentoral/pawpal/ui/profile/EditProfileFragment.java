@@ -1,4 +1,4 @@
-package com.bulentoral.pawpal;
+package com.bulentoral.pawpal.ui.profile;
 
 import android.os.Bundle;
 

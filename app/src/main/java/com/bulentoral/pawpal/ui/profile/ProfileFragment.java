@@ -1,4 +1,4 @@
-package com.bulentoral.pawpal;
+package com.bulentoral.pawpal.ui.profile;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,13 +13,11 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
+import com.bulentoral.pawpal.R;
+import com.bulentoral.pawpal.SplashActivity;
 import com.bulentoral.pawpal.databinding.FragmentProfileBinding;
 import com.bulentoral.pawpal.model.UserModel;
-import com.bulentoral.pawpal.service.AnimalClient;
-import com.bulentoral.pawpal.service.AnimalResponse;
-import com.bulentoral.pawpal.service.Taxonomy;
 import com.bulentoral.pawpal.util.FirebaseUtil;
 import com.bulentoral.pawpal.util.NavigationUtils;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -92,7 +90,7 @@ public class ProfileFragment extends Fragment {
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()){
                                 FirebaseUtil.getInstance().logout();
-                                Intent intent = new Intent(getContext(),SplashActivity.class);
+                                Intent intent = new Intent(getContext(), SplashActivity.class);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(intent);
                             }

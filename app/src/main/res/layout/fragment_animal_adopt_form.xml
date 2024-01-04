@@ -11,6 +11,8 @@
         android:id="@+id/materialToolbar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:title="Animal Adoptation"
+        app:titleTextColor="@color/text_and_icons"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
@@ -40,7 +42,7 @@
                     android:id="@+id/infoExtra"
                     style="@style/AuthTextInputLayoutStyle"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="150dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="24dp"
                     app:endIconMode="clear_text"
@@ -179,6 +181,7 @@
                     android:scaleType="fitCenter"
                     android:layout_height="200dp"
                     android:layout_marginTop="32dp"
+
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.497"
                     app:layout_constraintStart_toStartOf="parent"
@@ -264,11 +267,26 @@
                     android:layout_marginEnd="24dp"
                     android:layout_marginBottom="16dp"
                     android:hint="Choose Adress"
+
                     android:maxLines="1"
                     app:layout_constraintBottom_toTopOf="@+id/saveButton"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/infoExtra" />
+
+                <TextView
+                    android:id="@+id/imageviewWarningText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add Picture"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/animalPicture"
+                    app:layout_constraintEnd_toEndOf="@+id/animalPicture"
+                    app:layout_constraintStart_toStartOf="@+id/animalPicture"
+                    app:layout_constraintTop_toTopOf="@+id/animalPicture" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
