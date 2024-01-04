@@ -76,9 +76,7 @@
             style="@style/AuthTextInputEditTextStyle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="User name"
-            android:inputType="textPassword"
-            android:maxLines="1"
+            android:hint="Name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
     </com.google.android.material.textfield.TextInputLayout>

@@ -99,6 +99,10 @@ public class FirebaseUtil {
         return FirebaseFirestore.getInstance().collection("users");
     }
 
+    public static DocumentReference getUserWithId(String userId) {
+        return FirebaseFirestore.getInstance().collection("users").document(userId);
+    }
+
     public static DocumentReference getChatroomReference(String chatroomId) {
         return FirebaseFirestore.getInstance().collection("chatrooms").document(chatroomId);
     }

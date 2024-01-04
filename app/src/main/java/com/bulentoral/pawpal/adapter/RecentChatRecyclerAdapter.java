@@ -2,6 +2,7 @@ package com.bulentoral.pawpal.adapter;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +42,11 @@ public class RecentChatRecyclerAdapter extends FirestoreRecyclerAdapter<Chatroom
 
 
                         UserModel otherUserModel = task.getResult().toObject(UserModel.class);
+                        if(otherUserModel!=null) {
+                            System.out.println(otherUserModel);
+                        } else {
+                            System.out.println("hata!!!: otherUserModel boş geldi :(");
+                        }
 
 //                        FirebaseUtil.getOtherProfilePicStorageRef(otherUserModel.getUserId()).getDownloadUrl()
 //                                .addOnCompleteListener(t -> {
@@ -50,11 +56,16 @@ public class RecentChatRecyclerAdapter extends FirestoreRecyclerAdapter<Chatroom
 //                                    }
 //                                });
 
+
                         holder.usernameText.setText(otherUserModel.getUsername());
-                        if (lastMessageSentByMe)
+
+                        if (lastMessageSentByMe) {
                             holder.lastMessageText.setText("You : " + model.getLastMessage());
-                        else
+                        }
+                        else {
                             holder.lastMessageText.setText(model.getLastMessage());
+                        }
+
                         holder.lastMessageTime.setText(FirebaseUtil.timestampToString(model.getLastMessageTimestamp()));
 
                         holder.itemView.setOnClickListener(v -> {
