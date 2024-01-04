@@ -95,6 +95,10 @@ public class FirebaseUtil {
         return FirebaseFirestore.getInstance().collection("users").document(currentUserId());
     }
 
+    public static DocumentReference getAdoptationPostsReference(String postId) {
+        return FirebaseFirestore.getInstance().collection("adoptationPosts").document(postId);
+    }
+
     public static CollectionReference allUserCollectionReference() {
         return FirebaseFirestore.getInstance().collection("users");
     }
